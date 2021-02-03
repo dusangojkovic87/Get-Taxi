@@ -10,6 +10,8 @@ namespace Get_Taxi.Helpers
         {
             CreateMap<User,RegisterModel>().ReverseMap();
             CreateMap<CarCategory,CarCategoryAddModel>().ReverseMap();
+            CreateMap<Cars,CarAddModel>().ReverseMap();
+            CreateMap<TaxiOrders,TaxiOrderAddModel>().ReverseMap();
             
             
         }

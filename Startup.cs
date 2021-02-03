@@ -1,7 +1,9 @@
 using System;
+using System.Text;
 using AutoMapper;
 using Get_Taxi.Models;
 using Get_Taxi.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using Get_Taxi.Policies;
 
 namespace Get_Taxi
 {
@@ -41,6 +45,43 @@ namespace Get_Taxi
             //register services
             services.AddScoped<IRegisterRepository,RegisterRepository>();
             services.AddScoped<IAdminRepository,AdminRepository>();
+            services.AddScoped<IBookingRepository,BookingRepository>();
+
+
+            //cors
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("AllowEverything", builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+
+                });
+            });
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+              .AddCookie()
+              .AddJwtBearer(cfg =>
+              {
+                  cfg.TokenValidationParameters = new TokenValidationParameters()
+                  {
+                      ValidIssuer = Configuration["Tokens:Issuer"],
+                      ValidAudience = Configuration["Tokens:Audience"],
+                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:key"]))
+                  };
+              });
+
+        //authorization
+        services.AddAuthorization(config =>
+           {
+               config.AddPolicy(Policies.Policies.Admin, Policies.Policies.AdminPolicy());
+               config.AddPolicy(Policies.Policies.User, Policies.Policies.UserPolicy());
+           });
 
 
         }
@@ -66,7 +107,10 @@ namespace Get_Taxi
                 app.UseSpaStaticFiles();
             }
 
+            app.UseCors("AllowEverything");
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

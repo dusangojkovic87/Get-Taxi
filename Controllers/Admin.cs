@@ -40,5 +40,21 @@ namespace Get_Taxi.Controllers
 
             return BadRequest(ModelState);
         }
+
+    [HttpPost]
+    [Route("add-car/{id}")]
+    public async Task<IActionResult> addCar(CarAddModel model,int id){
+
+    if(ModelState.IsValid){
+        var categoryId = id;
+        var saved = await _admin.addCar(model,categoryId);
+        if(saved){
+            return Ok(new {message = "Car added!"});
+        }
+     return NotFound();
     }
+    return BadRequest(ModelState);
+        
+    }
+  } 
 }

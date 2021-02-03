@@ -63,7 +63,7 @@ namespace Get_Taxi.Controllers
             {
                 var claims = new[]{
                       new Claim("UserId",user.Id.ToString()),
-                      new Claim("UserId",user.Email)
+                      new Claim("UserEmail",user.Email)
                 };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Tokens:key"]));
