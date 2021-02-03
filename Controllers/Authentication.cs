@@ -35,25 +35,16 @@ namespace Get_Taxi.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var saved = await _registerService.Register(model);
-                    if (saved)
-                    {
-                        return Ok(new { message = true });
-                    }
-
-                    return BadRequest(new { error = "User already exists!" });
-
-                }
-                catch (System.Exception e)
-                {
-                    _logger.LogInformation(e.ToString());
-                    return StatusCode(500, new { error = "Server error,user not registered!" });
-                }
-
+               
+            var saved = await _registerService.Register(model);
+            if (saved)
+            {
+                return Ok(new { message = true });
             }
-            return BadRequest(ModelState);
+
+            return BadRequest(new { error = "User already exists!" });
+            }
+        return BadRequest(ModelState);
         }
 
         [HttpPost]
@@ -62,19 +53,14 @@ namespace Get_Taxi.Controllers
         {
 
             if (ModelState.IsValid)
+            {           
+            var user = await _registerService.getUser(model);
+            if (user == null)
             {
-
-                try
-                {
-                    var user = await _registerService.getUser(model);
-                    if (user == null)
-                    {
-                        return BadRequest(new { error = "You are not registered!" });
-                    }
-
-                    if (BC.Verify(model.Password, user.Password))
-                    {
-
+                return BadRequest(new { error = "You are not registered!" });
+            }
+            if (BC.Verify(model.Password, user.Password))
+            {
                 var claims = new[]{
                       new Claim("UserId",user.Id.ToString()),
                       new Claim("UserId",user.Email)
@@ -98,20 +84,10 @@ namespace Get_Taxi.Controllers
             };
 
             return Ok(userToken);
-        }
+          }
             return BadRequest(new { error = "Password do not match!" });
-
-        }
-                catch (Exception e)
-                {
-                    _logger.LogInformation(e.ToString());
-                    return StatusCode(500,new {error = "Server error,user not logged!"});
-
-                }
-            }
-
+         }
             return BadRequest(ModelState);
-
         }
     }
 }

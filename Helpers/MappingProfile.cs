@@ -9,6 +9,7 @@ namespace Get_Taxi.Helpers
         public MappingProfile()
         {
             CreateMap<User,RegisterModel>().ReverseMap();
+            CreateMap<CarCategory,CarCategoryAddModel>().ReverseMap();
             
             
         }

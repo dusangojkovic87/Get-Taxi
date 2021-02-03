@@ -1,3 +1,4 @@
+using System;
 using AutoMapper;
 using Get_Taxi.Models;
 using Get_Taxi.Services;
@@ -39,6 +40,7 @@ namespace Get_Taxi
 
             //register services
             services.AddScoped<IRegisterRepository,RegisterRepository>();
+            services.AddScoped<IAdminRepository,AdminRepository>();
 
 
         }
@@ -79,6 +81,7 @@ namespace Get_Taxi
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
                 spa.Options.SourcePath = "ClientApp";
+                spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
 
                 if (env.IsDevelopment())
                 {
