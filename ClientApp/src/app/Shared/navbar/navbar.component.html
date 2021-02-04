@@ -1,0 +1,12 @@
+<img class="logo" src="assets/icons/navbar/logo.svg" alt="logo.svg">
+<img (click) = "toggleNavbar()" class="bars" src="assets/icons/navbar/bars.svg" alt="bars.svg">
+
+<nav>
+     <ul [ngClass] = "navbarState ? 'show--navbar' : 'hide--navbar'">
+        <li><a class="font--Monserrat" href="#">Home</a></li>
+        <li><a class="font--Monserrat" href="#">About us</a></li>
+        <li><a class="font--Monserrat" href="#">Get Cab</a></li>
+        <li><a class="font--Monserrat" href="#">Contact us</a></li>
+        <li><a class="font--Monserrat" href="#">Login</a></li>
+     </ul>
+</nav>

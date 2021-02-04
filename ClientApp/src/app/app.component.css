@@ -1,0 +1,12 @@
+app-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+app-navbar{
+  position: fixed;
+  top: 3rem;
+  z-index: 100;
+}

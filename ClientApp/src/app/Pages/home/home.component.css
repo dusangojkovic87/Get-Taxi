@@ -1,0 +1,54 @@
+.home-img-wrraper{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
+}
+
+.home-img-wrraper img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-img-wrraper::after{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  content: "";
+  top: 0;
+  left: 0;
+}
+
+h6{
+  position: absolute;
+  text-align: center;
+  top:7rem;
+  font-size: 2rem;
+  color: #F7A002;
+  z-index: 2;
+  font-weight: bold;
+  mix-blend-mode:exclusion;
+  width: 100%;
+}
+
+h1{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 11rem;
+  font-size:4rem;
+  color: white;
+  z-index: 2;
+
+}
+
+@media only screen and (max-width:1007px){
+  .home-img-wrraper{
+    height:800px;
+  }
+
+}
