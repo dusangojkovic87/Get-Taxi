@@ -21,3 +21,8 @@ html,body{
   font-family: "Monserrat";
 }
 
+:root{
+  --orange:#F6A002;
+  --brown:#2E2A2A;
+}
+

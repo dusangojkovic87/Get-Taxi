@@ -28,7 +28,7 @@ h6{
   text-align: center;
   top:7rem;
   font-size: 2rem;
-  color: #F7A002;
+  color: var(--orange);
   z-index: 2;
   font-weight: bold;
   mix-blend-mode:exclusion;
@@ -52,3 +52,20 @@ h1{
   }
 
 }
+
+@media only screen and (max-width:1224px){
+  app-choose-car-class-card{
+    position: relative;
+    top:12rem;
+  }
+
+}
+
+@media only screen and (max-width:555px){
+  app-choose-car-class-card{
+    position: relative;
+    top:42rem;
+  }
+
+}
+
