@@ -44,10 +44,12 @@ nav ul li{
 }
 
 nav ul li a{
+  position: relative;
   text-decoration: none;
-  color: white;
+  color: var(--orange);
   font-size: 1rem;
   font-weight: bold;
+
 }
 
 .close--navbar{
