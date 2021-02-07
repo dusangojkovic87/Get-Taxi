@@ -14,6 +14,17 @@ import { ChooseCarClassCardComponent } from './Pages/home/choose-car-class-card/
 import { LoginComponent } from './Pages/login/login.component';
 import { LoginFormComponent } from './Pages/login/login-form/login-form.component';
 import { RegisterFormComponent } from './Pages/login/register-form/register-form.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './effects/auth.effects';
+import { AuthService } from './Services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 @NgModule({
   declarations: [
@@ -32,9 +43,13 @@ import { RegisterFormComponent } from './Pages/login/register-form/register-form
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    EffectsModule.forRoot([AuthEffects]),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
