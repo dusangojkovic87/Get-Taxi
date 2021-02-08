@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Actions } from '@ngrx/store-devtools/src/reducer';
-import { AuthActions, AuthActionTypes, LOGINSUCCESS } from '../actions/auth.actions';
+import { AuthActions, AuthActionTypes } from '../actions/auth.actions';
 import { User } from '../Models/User';
 
 
@@ -22,7 +22,7 @@ export const initialState: AuthState = {
 
 export function authreducer(state = initialState, action:AuthActions): AuthState {
   switch (action.type) {
-    case AuthActionTypes.LOGINSUCCESS:{
+    case AuthActionTypes.LOGIN_SUCCESS:{
       return {
         ...state,
         isAuthenticated:true,
@@ -32,9 +32,19 @@ export function authreducer(state = initialState, action:AuthActions): AuthState
         errorMessage:null
       }
     }
-    case AuthActionTypes.LOGINFAIL:{
+    case AuthActionTypes.LOGIN_FAIL:{
       return {
         ...state,errorMessage:"LOGIN FAILED!"
+      }
+    }
+    case AuthActionTypes.LOGOUT:{
+      return {
+        ...state,
+        isAuthenticated:false,
+        user:{
+          token:undefined,
+        },
+        errorMessage:null
       }
     }
 

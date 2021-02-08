@@ -24,6 +24,7 @@ html,body{
 :root{
   --orange:#F6A002;
   --brown:#2E2A2A;
+  --grey:#807D7D;
 }
 
 .activeLoginLink{

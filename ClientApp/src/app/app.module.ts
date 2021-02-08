@@ -22,6 +22,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './effects/auth.effects';
 import { AuthService } from './Services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './Pages/logout/logout.component';
+import { AboutComponent } from './Pages/about/about.component';
+import { AboutServiceCardComponent } from './Pages/about/about-service-card/about-service-card.component';
 
 
 
@@ -37,7 +40,11 @@ import { HttpClientModule } from '@angular/common/http';
     ChooseCarClassCardComponent,
     LoginComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    LogoutComponent,
+    AboutComponent,
+    AboutServiceCardComponent
+
 
   ],
   imports: [

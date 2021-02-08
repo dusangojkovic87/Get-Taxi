@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { LOGIN } from 'src/app/actions/auth.actions';
 import { State } from 'src/app/reducers';
-import {User} from "../../../Models/User";
+
 
 
 @Component({

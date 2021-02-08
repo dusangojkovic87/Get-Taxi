@@ -1,0 +1,56 @@
+.about-img-wrraper{
+  position: relative;
+  width: 100%;
+  height: 500px;
+  top: 0;
+  left: 0;
+}
+
+.about-img-wrraper::after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.about-img-wrraper img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__heading{
+  position: relative;
+  top: 7rem;
+  color: var(--orange);
+  z-index: 2;
+  margin-left: 1rem;
+  font-size:2rem;
+}
+
+.about__subheading{
+  position: relative;
+  top: 9rem;
+  color: white;
+  z-index: 2;
+  margin-left: 1rem;
+  width: 90%;
+}
+
+.taxi-squares-wrraper{
+  position: relative;
+  width: 100%;
+  height:50px;
+  background: url("/assets/icons/about/squares.png");
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-color: var(--orange);
+}
+
+
