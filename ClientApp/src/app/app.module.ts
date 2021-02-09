@@ -27,6 +27,7 @@ import { AboutComponent } from './Pages/about/about.component';
 import { AboutServiceCardComponent } from './Pages/about/about-service-card/about-service-card.component';
 import { FooterComponent } from './Shared/footer/footer.component';
 import { AboutBookTaxiCardComponent } from './Pages/about/about-book-taxi-card/about-book-taxi-card.component';
+import { GetCabComponent } from './Pages/get-cab/get-cab.component';
 
 
 
@@ -47,7 +48,8 @@ import { AboutBookTaxiCardComponent } from './Pages/about/about-book-taxi-card/a
     AboutComponent,
     AboutServiceCardComponent,
     FooterComponent,
-    AboutBookTaxiCardComponent
+    AboutBookTaxiCardComponent,
+    GetCabComponent
 
 
   ],
