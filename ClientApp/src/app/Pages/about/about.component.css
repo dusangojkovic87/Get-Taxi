@@ -4,6 +4,8 @@
   height: 500px;
   top: 0;
   left: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .about-img-wrraper::after{
@@ -51,6 +53,23 @@
   background-size: cover;
   background-repeat: repeat-x;
   background-color: var(--orange);
+}
+
+@media only screen and (max-width:539px){
+  .about-img-wrraper{
+    height:600px;
+  }
+}
+
+@media only screen and (max-width:385px){
+  .about__heading{
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .about-img-wrraper{
+    height: 700px;
+  }
 }
 
 

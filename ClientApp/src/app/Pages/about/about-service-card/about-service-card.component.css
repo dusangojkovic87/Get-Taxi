@@ -57,5 +57,19 @@
   font-size: 1rem;
 }
 
+@media only screen and (max-width:768px){
+  .about-service-card-container{
+    flex-direction: column;
+    height: 1300px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-item{
+    top: 0;
+    width:50%;
+  }
+}
+
 
 

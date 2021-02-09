@@ -25,6 +25,8 @@ html,body{
   --orange:#F6A002;
   --brown:#2E2A2A;
   --grey:#807D7D;
+  --light-orange:#FFC55A;
+  --dark-grey:#333333;
 }
 
 .activeLoginLink{

@@ -1,0 +1,131 @@
+.footer-container{
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: var(--dark-grey);
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-item{
+  position: relative;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height:250px;
+}
+
+
+.logo{
+  width:7rem;
+  height:7rem;
+}
+
+.company__details{
+  position: relative;
+  width:90%;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.footer__heading{
+  position: relative;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  top: 2rem;
+}
+
+.contact-info-container{
+  position: relative;
+  top:4rem;
+}
+
+.contact-info-wrraper{
+  position: relative;
+  display: flex;
+}
+
+.footer__icon{
+  width: 2rem;
+  height: 2rem;
+}
+
+.info__details{
+  position: relative;
+  color: var(--grey);
+ font-size: 1rem;
+ top: -0.5rem;
+ margin-left: 1rem;
+}
+
+.subscribe-wrraper{
+  position: relative;
+  top:3rem;
+}
+
+input{
+  width:70%;
+  height: 2rem;
+  border-radius: 5px;
+}
+
+::placeholder{
+  padding-left: 1rem;
+  font-family: "Oswald";
+  font-size: 1rem;
+}
+
+button{
+  position: relative;
+  height: 2.2rem;
+  width: 20%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: var(--orange);
+  color: white;
+  font-family: "Oswald";
+  font-size: 1rem;
+  top: 0.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.subscribe-wrraper p{
+  font-family: "Oswald";
+  color: #D1CBCB;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width:798px){
+  .footer-container{
+    flex-direction: column;
+    height:900px;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .footer-item{
+    width: 80%;
+  }
+
+  .footer__heading{
+    top:0rem;
+  }
+
+  .contact-info-container{
+    top: 0;
+  }
+
+  .subscribe-wrraper{
+    top: 0;
+  }
+
+
+}
+
+

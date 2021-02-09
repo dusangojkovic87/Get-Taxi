@@ -25,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './Pages/logout/logout.component';
 import { AboutComponent } from './Pages/about/about.component';
 import { AboutServiceCardComponent } from './Pages/about/about-service-card/about-service-card.component';
+import { FooterComponent } from './Shared/footer/footer.component';
+import { AboutBookTaxiCardComponent } from './Pages/about/about-book-taxi-card/about-book-taxi-card.component';
 
 
 
@@ -43,7 +45,9 @@ import { AboutServiceCardComponent } from './Pages/about/about-service-card/abou
     RegisterFormComponent,
     LogoutComponent,
     AboutComponent,
-    AboutServiceCardComponent
+    AboutServiceCardComponent,
+    FooterComponent,
+    AboutBookTaxiCardComponent
 
 
   ],
