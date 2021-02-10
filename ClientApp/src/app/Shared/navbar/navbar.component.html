@@ -6,7 +6,7 @@
         <li><a routerLink="" class="font--Monserrat">Home</a></li>
         <li><a routerLink="about" class="font--Monserrat">About us</a></li>
         <li><a routerLink="get-cab" class="font--Monserrat" href="#">Get Cab</a></li>
-        <li><a class="font--Monserrat" href="#">Contact us</a></li>
+        <li><a routerLink="contact" class="font--Monserrat">Contact us</a></li>
         <li *ngIf="!isLogged"><a routerLink="login" class="font--Monserrat">Login</a></li>
         <li *ngIf="isLogged"><a routerLink="logout" class="font--Monserrat">Logout</a></li>
      </ul>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './Pages/about/about.component';
+import { ContactComponent } from './Pages/contact/contact.component';
 import { GetCabComponent } from './Pages/get-cab/get-cab.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { LoginFormComponent } from './Pages/login/login-form/login-form.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"about",component:AboutComponent},
   {path:"get-cab",component:GetCabComponent},
+  {path:"contact",component:ContactComponent},
   {path:"logout",component:LogoutComponent},
   {path:"login",component:LoginComponent,children:[
     {path:"",redirectTo:"sign-in",pathMatch:"full"},
