@@ -1,14 +1,49 @@
+<div class="message-form-container">
+  <p
+    class="error__message"
+    *ngIf="
+      (bookingForm.get('startDestination').touched &&
+        bookingForm.get('startDestination').hasError('required')) ||
+      (bookingForm.get('endDestination').touched &&
+        bookingForm.get('endDestination').hasError('required')) ||
+      (bookingForm.get('timeDate').touched &&
+        bookingForm.get('timeDate').hasError('required')) ||
+      (bookingForm.get('carClass').touched &&
+        bookingForm.get('carClass').hasError('required')) ||
+      (bookingForm.get('phoneNumber').touched &&
+        bookingForm.get('phoneNumber').hasError('required'))
+    "
+  >
+    *fields cannot be empty!
+  </p>
+</div>
+<div *ngIf="bookedSucces" class="message-form-container">
+    <p class="success__msg">Booked succesfully!</p>
+</div>
 <div class="booking-container">
-  <form [formGroup] = "bookingForm" (ngSubmit) = "bookTaxi()">
-    <input formControlName = "startDestination" type="text" placeholder="start destination" />
-    <input formControlName = "endDestination" type="text" placeholder="end destination" />
-    <input formControlName = "timeDate" type="text" placeholder="time and date" />
-    <select formControlName = "carClass" id="car__class">
+  <form [formGroup]="bookingForm" (ngSubmit)="bookTaxi()">
+    <input
+      formControlName="startDestination"
+      type="text"
+      placeholder="start destination"
+    />
+    <input
+      formControlName="endDestination"
+      type="text"
+      placeholder="end destination"
+    />
+    <input
+      formControlName="timeDate"
+      type="datetime-local"
+      placeholder="time and date"
+    />
+    <select formControlName="carClass" id="car__class">
+      <option value="" selected disabled hidden>select car class</option>
       <option value="Economy">Economy</option>
       <option value="Standard">Standard</option>
       <option value="Buissness">Buissness</option>
     </select>
-    <input formControlName = "phoneNumber" type="text" placeholder="your phone" />
+    <input formControlName="phoneNumber" type="text" placeholder="your phone" />
     <div class="btn-wrraper">
       <button class="book__btn font--Monserrat">Book</button>
     </div>

@@ -12,8 +12,14 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   getToken(){
-    return localStorage.getItem("token");
-  }
+    let token = localStorage.getItem("token");
+    if(token != null){
+      return token;
+    }else{
+      return "";
+    }
+    }
+
 
   login(email:string,password:string):Observable<any>{
     const url = `${this.BASE_URL}/authentication/login`;

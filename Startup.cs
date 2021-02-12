@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Get_Taxi.Policies;
+using Get_Taxi.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace Get_Taxi
 {
@@ -36,16 +38,17 @@ namespace Get_Taxi
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddDbContext<AplicationDbContext>(opt =>{
+            services.AddDbContext<AplicationDbContext>(opt =>
+            {
                 opt.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
 
             services.AddAutoMapper(typeof(Startup));
 
             //register services
-            services.AddScoped<IRegisterRepository,RegisterRepository>();
-            services.AddScoped<IAdminRepository,AdminRepository>();
-            services.AddScoped<IBookingRepository,BookingRepository>();
+            services.AddScoped<IRegisterRepository, RegisterRepository>();
+            services.AddScoped<IAdminRepository, AdminRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
 
 
             //cors
@@ -76,19 +79,24 @@ namespace Get_Taxi
                   };
               });
 
-        //authorization
-        services.AddAuthorization(config =>
-           {
-               config.AddPolicy(Policies.Policies.Admin, Policies.Policies.AdminPolicy());
-               config.AddPolicy(Policies.Policies.User, Policies.Policies.UserPolicy());
-           });
+            //authorization
+            services.AddAuthorization(config =>
+               {
+                   config.AddPolicy(Policies.Policies.Admin, Policies.Policies.AdminPolicy());
+                   config.AddPolicy(Policies.Policies.User, Policies.Policies.UserPolicy());
+               });
 
 
         }
+       
+        private ILogger<Startup> _logger;
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
+            _logger = logger;
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -97,7 +105,7 @@ namespace Get_Taxi
             {
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-               /*  app.UseHsts(); */
+                /*  app.UseHsts(); */
             }
 
             app.UseHttpsRedirection();
@@ -106,6 +114,8 @@ namespace Get_Taxi
             {
                 app.UseSpaStaticFiles();
             }
+
+            app.ConfigureExceptionHandler(_logger);
 
             app.UseCors("AllowEverything");
             app.UseRouting();

@@ -26,7 +26,7 @@
 h6{
   position: absolute;
   text-align: center;
-  top:7rem;
+  top:5rem;
   font-size: 2rem;
   color: var(--orange);
   z-index: 2;
@@ -39,7 +39,7 @@ h1{
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 11rem;
+  top:9rem;
   font-size:4rem;
   color: white;
   z-index: 2;

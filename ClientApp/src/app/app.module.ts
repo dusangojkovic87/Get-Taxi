@@ -21,7 +21,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './effects/auth.effects';
 import { AuthService } from './Services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LogoutComponent } from './Pages/logout/logout.component';
 import { AboutComponent } from './Pages/about/about.component';
 import { AboutServiceCardComponent } from './Pages/about/about-service-card/about-service-card.component';
@@ -32,6 +32,9 @@ import { ContactComponent } from './Pages/contact/contact.component';
 import { SendMessageComponent } from './Pages/contact/send-message/send-message.component';
 import { BlogComponent } from './Pages/blog/blog.component';
 import { BlogPostComponent } from './Pages/blog/blog-post/blog-post.component';
+import { BookingEffects } from './effects/booking.effects';
+import { AuthInterceptor } from './HttpInterceptors/authInterceptor';
+
 
 
 
@@ -66,11 +69,11 @@ import { BlogPostComponent } from './Pages/blog/blog-post/blog-post.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, BookingEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [AuthService],
+  providers: [AuthService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
