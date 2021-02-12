@@ -30,6 +30,8 @@ import { AboutBookTaxiCardComponent } from './Pages/about/about-book-taxi-card/a
 import { GetCabComponent } from './Pages/get-cab/get-cab.component';
 import { ContactComponent } from './Pages/contact/contact.component';
 import { SendMessageComponent } from './Pages/contact/send-message/send-message.component';
+import { BlogComponent } from './Pages/blog/blog.component';
+import { BlogPostComponent } from './Pages/blog/blog-post/blog-post.component';
 
 
 
@@ -53,7 +55,9 @@ import { SendMessageComponent } from './Pages/contact/send-message/send-message.
     AboutBookTaxiCardComponent,
     GetCabComponent,
     ContactComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    BlogComponent,
+    BlogPostComponent
 
 
   ],
