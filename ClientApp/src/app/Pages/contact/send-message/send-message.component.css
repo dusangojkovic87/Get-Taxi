@@ -5,6 +5,30 @@ h1{
   text-align: center;
 }
 
+.message-form-container{
+  position: absolute;
+  width: 100%;
+  top:3rem;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.error__msg{
+  color: red;
+  font-family: "Oswald";
+  font-size: 1rem;
+  font-weight: bold;
+  padding-left: 1rem;
+}
+
+.msg__sent{
+  color: green;
+  font-family: "Oswald";
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .send-message-container{
   position: relative;
   width: 100%;

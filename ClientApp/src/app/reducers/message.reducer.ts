@@ -36,6 +36,14 @@ export function messagereducer(
         errorMessage: 'sending failed!',
       };
     }
+
+    case MessageActionTypes.DEFAULT_MESSAGE_STATE:{
+      return{
+        ...state,
+        sendSuccess:false,
+        errorMessage:null
+      }
+    }
     default:
       return state;
   }

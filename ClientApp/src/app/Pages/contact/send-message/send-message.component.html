@@ -1,13 +1,37 @@
 <div class="send-message-container">
   <h1>Have a question?</h1>
-  <form [formGroup]="messageForm" (ngSubmit) = "sendMessage()">
+  <div class="message-form-container">
+    <p
+      class="error__msg"
+      *ngIf="
+        (messageForm.get('Name').touched &&
+          messageForm.get('Name').hasError('required')) ||
+        (messageForm.get('Email').touched &&
+          messageForm.get('Name').hasError('required')) ||
+        (messageForm.get('Question').touched &&
+          messageForm.get('Questions').hasError('required'))
+      "
+    >
+      * fields cannot be empty!
+    </p>
+    <p
+      class="error__msg"
+      *ngIf="
+        messageForm.get('Email').touched &&
+        messageForm.get('Email').hasError('email')
+      "
+    >
+      *Email is not valid
+    </p>
+    <p *ngIf="messageSendSuccess" class="msg__sent">Message sent!</p>
+  </div>
+
+
+
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
     <div class="form-group">
       <input type="text" placeholder="your name" formControlName="Name" />
-      <input
-        type="text"
-        placeholder="your email"
-        formControlName="Email"
-      />
+      <input type="text" placeholder="your email" formControlName="Email" />
     </div>
     <textarea
       name=""
@@ -17,6 +41,8 @@
       placeholder="your question.."
       formControlName="Question"
     ></textarea>
-    <button class="send__btn" type="submit">Send</button>
+    <button [disabled]="messageForm.invalid" class="send__btn" type="submit">
+      Send
+    </button>
   </form>
 </div>

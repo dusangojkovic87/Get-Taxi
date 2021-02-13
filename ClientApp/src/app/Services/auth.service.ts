@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../Models/User';
 
 
 @Injectable({
@@ -26,5 +27,9 @@ export class AuthService {
     return this.http.post(url,{email,password});
   }
 
+  register(userData:User){
+    const url = `${this.BASE_URL}/authentication/register`;
+    return this.http.post<User>(url,userData);
+  }
 
 }

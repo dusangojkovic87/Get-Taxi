@@ -9,7 +9,8 @@ export const authFeatureKey = 'auth';
 export interface AuthState {
   isAuthenticated:boolean;
   user: User | null,
-  errorMessage?:any
+  errorMessage?:boolean,
+  registerSuccess:boolean
 
 
 }
@@ -17,7 +18,8 @@ export interface AuthState {
 export const initialState: AuthState = {
   isAuthenticated:false,
   user:null,
-  errorMessage: null
+  errorMessage: false,
+  registerSuccess:false
 };
 
 export function authreducer(state = initialState, action:AuthActions): AuthState {
@@ -29,12 +31,13 @@ export function authreducer(state = initialState, action:AuthActions): AuthState
         user:{
           token:action.payload.token
         },
-        errorMessage:null
+        errorMessage:false
       }
     }
     case AuthActionTypes.LOGIN_FAIL:{
       return {
-        ...state,errorMessage:"LOGIN FAILED!"
+        ...state,
+        errorMessage:true
       }
     }
     case AuthActionTypes.LOGOUT:{
@@ -44,7 +47,23 @@ export function authreducer(state = initialState, action:AuthActions): AuthState
         user:{
           token:undefined,
         },
-        errorMessage:null
+        errorMessage:false
+      }
+    }
+    case AuthActionTypes.REGISTER_SUCCESS:{
+      return {
+        ...state,
+        isAuthenticated:false,
+        errorMessage:false,
+        registerSuccess:true
+      }
+    }
+
+    case AuthActionTypes.REGISTER_FAIL:{
+      return{
+        ...state,
+        isAuthenticated:false,
+        errorMessage:true
       }
     }
 

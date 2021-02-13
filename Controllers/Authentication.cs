@@ -39,7 +39,7 @@ namespace Get_Taxi.Controllers
             var saved = await _registerService.Register(model);
             if (saved)
             {
-                return Ok(new { message = true });
+                return Ok(new { message = "Registered!" });
             }
 
             return BadRequest(new { error = "User already exists!" });

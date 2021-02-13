@@ -1,3 +1,6 @@
+<div *ngIf="registrationError" class="message-form-container">
+  <p class="error__msg">REGISTRATION FAILED!</p>
+</div>
 <div class="register-form-container">
    <form [formGroup] = "registerForm" (ngSubmit) = "register()">
       <input type="text" placeholder="Name" formControlName = "Name">

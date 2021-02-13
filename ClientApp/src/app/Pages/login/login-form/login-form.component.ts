@@ -13,7 +13,7 @@ import { State } from 'src/app/reducers';
 })
 export class LoginFormComponent implements OnInit {
   loginForm:any;
-  errorMessage?:string;
+  errorMessage?:boolean;
 
   constructor(private fb:FormBuilder,private store:Store<State>) { }
 
