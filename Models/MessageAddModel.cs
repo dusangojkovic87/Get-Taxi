@@ -1,17 +1,9 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Get_Taxi.Entities
+namespace Get_Taxi.Models
 {
-    public class Messages
+    public class MessageAddModel
     {
-        public Messages()
-        {
-           
-           ReceivedAt = DateTime.Now;
-        }
-
-        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -19,7 +11,6 @@ namespace Get_Taxi.Entities
         public string Email { get; set; }
         [Required]
         public string Question { get; set; }
-        [Required]
-        public DateTime ReceivedAt { get; set; }
+        
     }
 }

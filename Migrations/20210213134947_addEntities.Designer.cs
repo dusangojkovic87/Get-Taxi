@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Get_Taxi.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    [Migration("20210202112051_addEntities")]
+    [Migration("20210213134947_addEntities")]
     partial class addEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,6 +79,33 @@ namespace Get_Taxi.Migrations
                     b.HasIndex("CarCategoryId");
 
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("Get_Taxi.Entities.Messages", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ReceivedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("Get_Taxi.Entities.TaxiOrders", b =>

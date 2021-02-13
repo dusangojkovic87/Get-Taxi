@@ -1,12 +1,22 @@
 <div class="send-message-container">
   <h1>Have a question?</h1>
-  <form action="">
+  <form [formGroup]="messageForm" (ngSubmit) = "sendMessage()">
     <div class="form-group">
-      <input type="text" placeholder="your name">
-      <input type="text" placeholder="your email">
+      <input type="text" placeholder="your name" formControlName="Name" />
+      <input
+        type="text"
+        placeholder="your email"
+        formControlName="Email"
+      />
     </div>
-    <textarea name="" id="" cols="30" rows="10" placeholder="your question.."></textarea>
+    <textarea
+      name=""
+      id=""
+      cols="30"
+      rows="10"
+      placeholder="your question.."
+      formControlName="Question"
+    ></textarea>
     <button class="send__btn" type="submit">Send</button>
   </form>
-
 </div>

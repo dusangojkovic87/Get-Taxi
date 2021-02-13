@@ -34,8 +34,7 @@ import { BlogComponent } from './Pages/blog/blog.component';
 import { BlogPostComponent } from './Pages/blog/blog-post/blog-post.component';
 import { BookingEffects } from './effects/booking.effects';
 import { AuthInterceptor } from './HttpInterceptors/authInterceptor';
-
-
+import { MessageEffects } from './effects/message.effects';
 
 
 
@@ -69,7 +68,7 @@ import { AuthInterceptor } from './HttpInterceptors/authInterceptor';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([AuthEffects, BookingEffects]),
+    EffectsModule.forRoot([AuthEffects, BookingEffects, MessageEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],

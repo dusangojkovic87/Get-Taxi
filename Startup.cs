@@ -49,6 +49,7 @@ namespace Get_Taxi
             services.AddScoped<IRegisterRepository, RegisterRepository>();
             services.AddScoped<IAdminRepository, AdminRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
+            services.AddScoped<IMessageRepository,MessageRepository>();
 
 
             //cors
