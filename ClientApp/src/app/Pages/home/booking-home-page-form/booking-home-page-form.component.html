@@ -2,16 +2,16 @@
   <p
     class="error__message"
     *ngIf="
-      (bookingForm.get('startDestination').touched &&
-        bookingForm.get('startDestination').hasError('required')) ||
-      (bookingForm.get('endDestination').touched &&
-        bookingForm.get('endDestination').hasError('required')) ||
-      (bookingForm.get('timeDate').touched &&
-        bookingForm.get('timeDate').hasError('required')) ||
-      (bookingForm.get('carClass').touched &&
-        bookingForm.get('carClass').hasError('required')) ||
-      (bookingForm.get('phoneNumber').touched &&
-        bookingForm.get('phoneNumber').hasError('required'))
+      (bookingForm.get('startDestination')?.touched &&
+        bookingForm.get('startDestination')?.hasError('required')) ||
+      (bookingForm.get('endDestination')?.touched &&
+        bookingForm.get('endDestination')?.hasError('required')) ||
+      (bookingForm.get('timeDate')?.touched &&
+        bookingForm.get('timeDate')?.hasError('required')) ||
+      (bookingForm.get('carClass')?.touched &&
+        bookingForm.get('carClass')?.hasError('required')) ||
+      (bookingForm.get('phoneNumber')?.touched &&
+        bookingForm.get('phoneNumber')?.hasError('required'))
     "
   >
     *fields cannot be empty!

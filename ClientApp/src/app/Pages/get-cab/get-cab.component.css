@@ -63,6 +63,29 @@ form{
   width: 70%;
 }
 
+.message-form-container{
+  position: absolute;
+  top: 11rem;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.error__message{
+  font-family: "Oswald";
+  font-size: 1rem;
+  color: red;
+  font-weight: bold;
+}
+
+.booked__success__msg{
+  font-family: "Oswald";
+  font-size: 1rem;
+  font-weight: bold;
+  color: green;
+}
+
 .form-group{
   position: relative;
   display: flex;
@@ -90,11 +113,18 @@ input{
   left: 50%;
   right: 50%;
   top:20rem;
+  cursor: pointer;
 }
 
 #carClass{
   width: 14rem;
-  height: 2rem;
+  height: 2.3rem;
+  margin: 1rem;
+}
+
+#passengerNumber{
+  width: 14rem;
+  height: 2.3rem;
   margin: 1rem;
 }
 
@@ -131,6 +161,11 @@ label{
    height: 2.3rem;
  }
 
+ #passengerNumber{
+  width: 20rem;
+  height: 2.3rem;
+ }
+
   .book__btn{
     top:39rem;
     left: 0;
@@ -144,6 +179,10 @@ label{
   }
 
   #carClass{
+    width: 15rem;
+  }
+
+  #passengerNumber{
     width: 15rem;
   }
 }

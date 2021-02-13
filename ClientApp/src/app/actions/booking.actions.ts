@@ -4,7 +4,8 @@ import { TaxiOrder } from "../Models/TaxiOrder";
 export enum BookingActionTypes{
   BOOK_TAXI = "[Booking] BOOK_TAXI",
   BOOKED_SUCCESS = "[Booking] BOOKED_SUCCESS",
-  BOOKING_FAIL = "[Booking] BOOKING_FAIL"
+  BOOKING_FAIL = "[Booking] BOOKING_FAIL",
+  BOOKING_DEFAULT_STATE = "[Booking] BOOKING_DEFAULT_STATE"
 
 }
 
@@ -26,4 +27,9 @@ export class BOOKING_FAIL implements Action{
 
 }
 
-export type BookingActions = BOOK_TAXI | BOOKED_SUCCESS | BOOKING_FAIL;
+export class BOOKING_DEFAULT_STATE implements Action{
+  readonly type = BookingActionTypes.BOOKING_DEFAULT_STATE;
+
+}
+
+export type BookingActions = BOOK_TAXI | BOOKED_SUCCESS | BOOKING_FAIL | BOOKING_DEFAULT_STATE;

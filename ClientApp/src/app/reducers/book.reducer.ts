@@ -33,6 +33,13 @@ export function bookingreducer(state = initialState, action: BookingActions): Bo
         errorMessage:"Error,booking failed!"
       }
     }
+    case BookingActionTypes.BOOKING_DEFAULT_STATE:{
+      return {
+        ...state,
+        bookedSucces:false,
+        errorMessage:null
+      }
+    }
 
     default:
       return state;
