@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
+using AutoMapper;
+using Get_Taxi.Entities;
 using Get_Taxi.Models;
-using Get_Taxi.Services;
+using Get_Taxi.Services.ServiceInterfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,24 +13,35 @@ namespace Get_Taxi.Controllers
     [Authorize]
     public class Booking : BaseController
     {
-        private IBookingRepository _booking;
-        public Booking(IBookingRepository booking)
+        private readonly IUnitOfWork _repository;
+        private readonly IMapper _mapper;
+        public Booking(IUnitOfWork repository, IMapper mapper)
         {
-            _booking = booking;
+            _mapper = mapper;
+            _repository = repository;
+
         }
 
-    [HttpPost]
-    [Route("taxi")]
-    public async Task<IActionResult> Taxi(TaxiOrderAddModel model){
-    
-    if(ModelState.IsValid){
-        var userId = GetUserId();
-        var saved = await _booking.bookTaxi(model,userId);
-        if(saved){
-          return Ok(new {message = "order succesfull!"});
-         }
-      }  
-    return BadRequest(ModelState);
+        [HttpPost]
+        [Route("taxi")]
+        public IActionResult Taxi(TaxiOrderAddModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var userId = GetUserId();
+                
+                model.UserId = userId;
+                var taxiOrder = _mapper.Map<TaxiOrders>(model);
+                _repository.Booking.Add(taxiOrder);
+                if (_repository.Save() > 0)
+                {
+                    return Ok(new { message = "Booked successfully!" });
+                }
+            }
+
+            return BadRequest(ModelState);
+        }
+
     }
-  }
 }

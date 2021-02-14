@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Get_Taxi.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    [Migration("20210213134947_addEntities")]
+    [Migration("20210214172400_addEntities")]
     partial class addEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

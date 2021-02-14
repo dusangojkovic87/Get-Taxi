@@ -4,12 +4,12 @@
     <p
       class="error__msg"
       *ngIf="
-        (messageForm.get('Name').touched &&
-          messageForm.get('Name').hasError('required')) ||
-        (messageForm.get('Email').touched &&
-          messageForm.get('Name').hasError('required')) ||
-        (messageForm.get('Question').touched &&
-          messageForm.get('Questions').hasError('required'))
+        (messageForm.get('Name')?.touched &&
+          messageForm.get('Name')?.hasError('required')) ||
+        (messageForm.get('Email')?.touched &&
+          messageForm.get('Name')?.hasError('required')) ||
+        (messageForm.get('Question')?.touched &&
+          messageForm.get('Questions')?.hasError('required'))
       "
     >
       * fields cannot be empty!
@@ -17,8 +17,8 @@
     <p
       class="error__msg"
       *ngIf="
-        messageForm.get('Email').touched &&
-        messageForm.get('Email').hasError('email')
+        messageForm.get('Email')?.touched &&
+        messageForm.get('Email')?.hasError('email')
       "
     >
       *Email is not valid

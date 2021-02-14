@@ -6,14 +6,12 @@ using Get_Taxi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Get_Taxi.Policies;
 using Get_Taxi.Extensions;
 using Microsoft.Extensions.Logging;
 using Get_Taxi.Services.ServiceInterfaces;
@@ -48,10 +46,6 @@ namespace Get_Taxi
             services.AddAutoMapper(typeof(Startup));
 
             //register services
-            services.AddScoped<IRegisterRepository, RegisterRepository>();
-            services.AddScoped<IAdminRepository, AdminRepository>();
-            services.AddScoped<IBookingRepository, BookingRepository>();
-            services.AddScoped<IMessageRepository,MessageRepository>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
 
 

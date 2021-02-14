@@ -19,7 +19,7 @@ namespace Get_Taxi.Entities
         public string Email { get; set; }
         [Required]
         public string Question { get; set; }
-        [Required]
+        [Required]  
         public DateTime ReceivedAt { get; set; }
     }
 }

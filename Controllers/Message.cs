@@ -1,6 +1,7 @@
-using System.Threading.Tasks;
+using AutoMapper;
+using Get_Taxi.Entities;
 using Get_Taxi.Models;
-using Get_Taxi.Services;
+using Get_Taxi.Services.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Get_Taxi.Controllers
@@ -9,29 +10,31 @@ namespace Get_Taxi.Controllers
     [Route("[controller]")]
     public class Message : BaseController
     {
-        private readonly IMessageRepository _messageServise;
-        public Message(IMessageRepository messageServise)
+        private readonly IUnitOfWork _repository;
+        private readonly IMapper _mapper;
+        public Message(IUnitOfWork repository, IMapper mapper)
         {
-            _messageServise = messageServise;
+            _mapper = mapper;
+            _repository = repository;
 
         }
 
         [HttpPost]
         [Route("send")]
-        public async Task<IActionResult> send(MessageAddModel model)
+        public IActionResult send(MessageAddModel model)
         {
-
             if (ModelState.IsValid)
             {
-                var saved = await _messageServise.addMessage(model);
-                if (saved)
-                {
-                    return Ok(new { message = "message sent!" });
+                var message = _mapper.Map<Messages>(model);
+                _repository.Messages.Add(message);
+
+                if(_repository.Save() > 0){
+                    return Ok(new {message = "message sent!"});
                 }
+                
             }
-
-            return BadRequest(ModelState);
-
+            return BadRequest(ModelState);   
         }
+
     }
 }

@@ -75,8 +75,8 @@ namespace Get_Taxi.Controllers
                 if (BC.Verify(user.Password, userFromDb.Password))
                 {
                     var claims = new[]{
-                         new Claim("UserId",user.Id.ToString()),
-                         new Claim("UserEmail",user.Email)
+                         new Claim("UserId",userFromDb.Id.ToString()),
+                         new Claim("UserEmail",userFromDb.Email)
                      };
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Tokens:key"]));

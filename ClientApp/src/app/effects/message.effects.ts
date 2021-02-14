@@ -26,7 +26,7 @@ export class MessageEffects {
         this.messageServise.sendMessage(payload).pipe(
           map((payload) => {
             console.log(payload);
-            return new SEND_MESSAGE(payload);
+            return new SEND_SUCCESS(payload);
           }),
           catchError((err) => {
             console.log(err);

@@ -4,6 +4,7 @@ using Get_Taxi.Entities;
 
 namespace Get_Taxi.Models
 {
+    
     public class TaxiOrderAddModel
     {
          public string startDestination { get; set; }
