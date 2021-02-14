@@ -16,6 +16,8 @@ using Microsoft.IdentityModel.Tokens;
 using Get_Taxi.Policies;
 using Get_Taxi.Extensions;
 using Microsoft.Extensions.Logging;
+using Get_Taxi.Services.ServiceInterfaces;
+using Get_Taxi.Services.Repositories;
 
 namespace Get_Taxi
 {
@@ -50,6 +52,7 @@ namespace Get_Taxi
             services.AddScoped<IAdminRepository, AdminRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<IMessageRepository,MessageRepository>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
 
 
             //cors
