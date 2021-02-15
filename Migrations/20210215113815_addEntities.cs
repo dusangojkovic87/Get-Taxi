@@ -8,6 +8,19 @@ namespace Get_Taxi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "BlogCategory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Category = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlogCategory", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CarCategory",
                 columns: table => new
                 {
@@ -67,6 +80,29 @@ namespace Get_Taxi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Blog",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BlogName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BlogText = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CratedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BlogCategoryId = table.Column<int>(type: "int", nullable: false),
+                    BlogImage = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Blog", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Blog_BlogCategory_BlogCategoryId",
+                        column: x => x.BlogCategoryId,
+                        principalTable: "BlogCategory",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cars",
                 columns: table => new
                 {
@@ -118,6 +154,11 @@ namespace Get_Taxi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Blog_BlogCategoryId",
+                table: "Blog",
+                column: "BlogCategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cars_CarCategoryId",
                 table: "Cars",
                 column: "CarCategoryId");
@@ -131,6 +172,9 @@ namespace Get_Taxi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Blog");
+
+            migrationBuilder.DropTable(
                 name: "Cars");
 
             migrationBuilder.DropTable(
@@ -141,6 +185,9 @@ namespace Get_Taxi.Migrations
 
             migrationBuilder.DropTable(
                 name: "TaxiOrders");
+
+            migrationBuilder.DropTable(
+                name: "BlogCategory");
 
             migrationBuilder.DropTable(
                 name: "CarCategory");

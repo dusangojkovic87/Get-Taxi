@@ -16,6 +16,8 @@ namespace Get_Taxi.Models
         public DbSet<TaxiOrders> TaxiOrders { get; set; }
         public DbSet<Messages> Messages {get;set;}
         public DbSet<SubscribedUsers> SubscribedUsers { get; set; }
+        public DbSet<BlogCategory> BlogCategory { get; set; }
+        public DbSet<Blog> Blog { get; set; }
         
         
     }

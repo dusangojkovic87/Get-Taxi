@@ -19,6 +19,53 @@ namespace Get_Taxi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("Get_Taxi.Entities.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("BlogCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BlogImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BlogName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BlogText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CratedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogCategoryId");
+
+                    b.ToTable("Blog");
+                });
+
+            modelBuilder.Entity("Get_Taxi.Entities.BlogCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BlogCategory");
+                });
+
             modelBuilder.Entity("Get_Taxi.Entities.CarCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -192,6 +239,17 @@ namespace Get_Taxi.Migrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("Get_Taxi.Entities.Blog", b =>
+                {
+                    b.HasOne("Get_Taxi.Entities.BlogCategory", "BlogCategory")
+                        .WithMany("Blog")
+                        .HasForeignKey("BlogCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BlogCategory");
+                });
+
             modelBuilder.Entity("Get_Taxi.Entities.Cars", b =>
                 {
                     b.HasOne("Get_Taxi.Entities.CarCategory", "CarCategory")
@@ -212,6 +270,11 @@ namespace Get_Taxi.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Get_Taxi.Entities.BlogCategory", b =>
+                {
+                    b.Navigation("Blog");
                 });
 
             modelBuilder.Entity("Get_Taxi.Entities.CarCategory", b =>
