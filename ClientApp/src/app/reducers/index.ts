@@ -9,19 +9,22 @@ import { environment } from '../../environments/environment';
 import { authreducer, AuthState } from './auth.reducer';
 import { bookingreducer, BookingState } from './book.reducer';
 import { messagereducer, MessageState } from './message.reducer';
+import { subscribereducer, SubscribeState } from './subscribe.reducer';
 
 
 export interface State {
   authState:AuthState,
   bookingState:BookingState,
-  messageState:MessageState
+  messageState:MessageState,
+  subscribeState:SubscribeState
 
 }
 
 export const reducers: ActionReducerMap<State,any> = {
   authState:authreducer,
   bookingState:bookingreducer,
-  messageState:messagereducer
+  messageState:messagereducer,
+  subscribeState:subscribereducer
 
 };
 

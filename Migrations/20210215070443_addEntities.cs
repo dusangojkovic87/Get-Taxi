@@ -37,6 +37,20 @@ namespace Get_Taxi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SubscribedUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    dateofSubsription = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SubscribedUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -121,6 +135,9 @@ namespace Get_Taxi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Messages");
+
+            migrationBuilder.DropTable(
+                name: "SubscribedUsers");
 
             migrationBuilder.DropTable(
                 name: "TaxiOrders");

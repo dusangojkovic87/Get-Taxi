@@ -12,16 +12,19 @@ namespace Get_Taxi.Services.Repositories
             AuthUser = new AuthRepository(_context);
             Booking = new BookingRepository(_context);
             Messages = new MessageRepository(_context);
+            SubsribeEmail = new SubscribeRepository(_context);
 
         }
 
-        public IAuthRepository AuthUser {get;set;}
-        public IBookingRepository Booking {get;set;}
-        public IMessageRepository Messages {get;set;}
+        
+        public IAuthRepository AuthUser { get; set; }
+        public IBookingRepository Booking { get; set; }
+        public IMessageRepository Messages { get; set; }
+        public ISubscribeRepository SubsribeEmail { get; set; }
 
         public void Dispose()
         {
-           _context.Dispose();
+            _context.Dispose();
         }
 
         public int Save()

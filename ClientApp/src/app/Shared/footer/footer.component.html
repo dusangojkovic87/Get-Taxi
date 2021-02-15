@@ -39,10 +39,25 @@
     <p class="footer__heading font--Monserrat">subscribe to us</p>
     <div class="subscribe-wrraper">
       <p>Subscribe to our Newsletters!</p>
-      <form action="">
-        <input type="text" placeholder="your email" />
-        <button>ok</button>
+      <form [formGroup]="emailForm" (ngSubmit)="subscribeEmail()">
+        <input type="text" placeholder="your email" formControlName="Email" />
+        <button type="submit">ok</button>
       </form>
+      <div class="message-form-wrraper">
+        <p class="success__msg" *ngIf="subscribed">subscribed!</p>
+        <p class="error__msg" *ngIf="errorMessage">Subscription failed!</p>
+        <p class="error__msg"
+          *ngIf="
+            emailForm.get('Email').touched &&
+            emailForm.get('Email').hasError('required')
+          "
+        >
+          *Field cannot be empty
+        </p>
+        <p class="error__msg" *ngIf="emailForm.get('Email').touched && emailForm.get('Email').hasError('email') ">
+          *Email is not valid
+        </p>
+      </div>
     </div>
   </div>
 </div>

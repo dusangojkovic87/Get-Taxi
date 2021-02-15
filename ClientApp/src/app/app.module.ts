@@ -35,6 +35,7 @@ import { BlogPostComponent } from './Pages/blog/blog-post/blog-post.component';
 import { BookingEffects } from './effects/booking.effects';
 import { AuthInterceptor } from './HttpInterceptors/authInterceptor';
 import { MessageEffects } from './effects/message.effects';
+import { SubscribeEffects } from './effects/subscribe.effects';
 
 
 
@@ -71,6 +72,7 @@ import { MessageEffects } from './effects/message.effects';
     EffectsModule.forRoot([AuthEffects, BookingEffects, MessageEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forFeature([SubscribeEffects])
   ],
   providers: [AuthService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

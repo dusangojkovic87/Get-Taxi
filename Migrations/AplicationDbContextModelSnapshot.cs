@@ -106,6 +106,25 @@ namespace Get_Taxi.Migrations
                     b.ToTable("Messages");
                 });
 
+            modelBuilder.Entity("Get_Taxi.Entities.SubscribedUsers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("dateofSubsription")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SubscribedUsers");
+                });
+
             modelBuilder.Entity("Get_Taxi.Entities.TaxiOrders", b =>
                 {
                     b.Property<int>("Id")
