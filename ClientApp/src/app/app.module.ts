@@ -36,6 +36,11 @@ import { BookingEffects } from './effects/booking.effects';
 import { AuthInterceptor } from './HttpInterceptors/authInterceptor';
 import { MessageEffects } from './effects/message.effects';
 import { SubscribeEffects } from './effects/subscribe.effects';
+import { AdminComponent } from './Pages/admin/admin.component';
+import { TaxiOrdersComponent } from './Pages/admin/taxi-orders/taxi-orders.component';
+import { AddBlogComponent } from './Pages/admin/add-blog/add-blog.component';
+import { TaxiOrderComponent } from './Pages/admin/taxi-orders/taxi-order/taxi-order.component';
+import { TaxiordersEffects } from './effects/taxiorders.effects';
 
 
 
@@ -60,7 +65,11 @@ import { SubscribeEffects } from './effects/subscribe.effects';
     ContactComponent,
     SendMessageComponent,
     BlogComponent,
-    BlogPostComponent
+    BlogPostComponent,
+    AdminComponent,
+    TaxiOrdersComponent,
+    AddBlogComponent,
+    TaxiOrderComponent
 
 
   ],
@@ -69,7 +78,7 @@ import { SubscribeEffects } from './effects/subscribe.effects';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([AuthEffects, BookingEffects, MessageEffects]),
+    EffectsModule.forRoot([AuthEffects, BookingEffects, MessageEffects, TaxiordersEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forFeature([SubscribeEffects])

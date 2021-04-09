@@ -10,13 +10,15 @@ import { authreducer, AuthState } from './auth.reducer';
 import { bookingreducer, BookingState } from './book.reducer';
 import { messagereducer, MessageState } from './message.reducer';
 import { subscribereducer, SubscribeState } from './subscribe.reducer';
+import { taxiordersreducer, TaxiOrdersState } from './taxiorders.reducer';
 
 
 export interface State {
   authState:AuthState,
   bookingState:BookingState,
   messageState:MessageState,
-  subscribeState:SubscribeState
+  subscribeState:SubscribeState,
+  taxiordersState:TaxiOrdersState
 
 }
 
@@ -24,7 +26,8 @@ export const reducers: ActionReducerMap<State,any> = {
   authState:authreducer,
   bookingState:bookingreducer,
   messageState:messagereducer,
-  subscribeState:subscribereducer
+  subscribeState:subscribereducer,
+  taxiordersState:taxiordersreducer
 
 };
 

@@ -10,10 +10,9 @@ import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
 } from '../actions/auth.actions';
-import { catchError, map, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { AuthService } from '../Services/auth.service';
 import { Router } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class AuthEffects {

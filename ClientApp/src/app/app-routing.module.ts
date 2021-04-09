@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './Pages/about/about.component';
+import { AddBlogComponent } from './Pages/admin/add-blog/add-blog.component';
+import { AdminComponent } from './Pages/admin/admin.component';
+import { TaxiOrdersComponent } from './Pages/admin/taxi-orders/taxi-orders.component';
 import { BlogComponent } from './Pages/blog/blog.component';
 import { ContactComponent } from './Pages/contact/contact.component';
 import { GetCabComponent } from './Pages/get-cab/get-cab.component';
@@ -21,6 +24,11 @@ const routes: Routes = [
     {path:"",redirectTo:"sign-in",pathMatch:"full"},
     {path:"sign-in",component:LoginFormComponent},
     {path:"register",component:RegisterFormComponent},
+  ]},
+  {path:"admin",component:AdminComponent,children:[
+    {path:"taxi-orders",component:TaxiOrdersComponent},
+    {path:"add-blog",component:AddBlogComponent}
+
   ]}
 ];
 

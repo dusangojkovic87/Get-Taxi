@@ -1,0 +1,28 @@
+.taxi-order-container{
+  position: relative;
+  width:100%;
+  height:60px;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  font-family: "Oswald";
+  font-size: 1rem;
+  margin:1rem;
+}
+
+span{
+  font-weight: bold;
+  margin-right: 0.3rem;
+}
+
+@media only screen and (max-width:768px){
+  .taxi-order-container{
+    flex-direction: column;
+    height: 300px;
+  }
+}
+

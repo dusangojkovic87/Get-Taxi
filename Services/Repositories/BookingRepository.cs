@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Get_Taxi.Entities;
 using Get_Taxi.Models;
@@ -13,9 +16,11 @@ namespace Get_Taxi.Services.Repositories
             _context = context;
 
         }
+
         public  void bookTaxi(TaxiOrders model)
         {
           _context.TaxiOrders.Add(model);
         }
+        
     }
 }

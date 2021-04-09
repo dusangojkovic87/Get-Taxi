@@ -13,6 +13,7 @@ namespace Get_Taxi.Services.Repositories
             Booking = new BookingRepository(_context);
             Messages = new MessageRepository(_context);
             SubsribeEmail = new SubscribeRepository(_context);
+            TaxiOrders = new TaxiOrdersRepository(_context);
 
         }
 
@@ -21,6 +22,7 @@ namespace Get_Taxi.Services.Repositories
         public IBookingRepository Booking { get; set; }
         public IMessageRepository Messages { get; set; }
         public ISubscribeRepository SubsribeEmail { get; set; }
+        public ITaxiOrders TaxiOrders {get;set;}
 
         public void Dispose()
         {

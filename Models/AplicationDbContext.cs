@@ -10,6 +10,15 @@ namespace Get_Taxi.Models
             
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<User>()
+               .Property(p => p.UserRole)
+                  .HasDefaultValue("Customer");
+           
+        }
+
+        
+
         public DbSet<User> User {get;set;}
         public DbSet<CarCategory> CarCategory { get; set; }
         public DbSet<Cars> Cars { get; set; }

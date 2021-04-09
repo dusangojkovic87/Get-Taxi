@@ -1,0 +1,30 @@
+<div class="admin-header">
+  <img (click) = "openSideMenu()" class="bars__admin" src="assets/icons/admin/bars.svg" alt="bars.svg" />
+</div>
+<div class="admin-side-menu-container" *ngIf="sideMenuOpened">
+  <img (click) ="closeSideMenu()" class="close__btn" src="assets/icons/admin/close.svg" alt="close.svg">
+  <ul>
+    <li>
+      <a routerLink="taxi-orders">
+        <img
+          class="admin__icon"
+          src="assets/icons/admin/taxi.svg"
+          alt="taxi.svg"
+        />
+        Orders</a
+      >
+    </li>
+    <li>
+      <a routerLink="add-blog">
+        <img
+          class="admin__icon"
+          src="assets/icons/admin/blog1.svg"
+          alt="taxi.svg"
+        />Add Blog</a
+      >
+    </li>
+  </ul>
+</div>
+<div class="load-page-container">
+  <router-outlet></router-outlet>
+</div>

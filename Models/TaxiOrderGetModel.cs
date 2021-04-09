@@ -1,11 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using Get_Taxi.Entities;
 
 namespace Get_Taxi.Models
 {
-    
-    public class TaxiOrderAddModel
+    public class TaxiOrderGetModel
     {
         public string startDestination { get; set; }
         [Required]
@@ -17,8 +15,6 @@ namespace Get_Taxi.Models
         [Required]
         public string phoneNumber { get; set; }
         public int passengersNumber { get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
         
     }
 }
