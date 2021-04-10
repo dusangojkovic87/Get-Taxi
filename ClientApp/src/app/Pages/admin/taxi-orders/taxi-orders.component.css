@@ -1,3 +1,9 @@
 app-taxi-order{
   margin: 1rem;
 }
+
+.no__orders__heading{
+  font-family: "Oswald";
+  font-size: 2rem;
+  text-align: center;
+}

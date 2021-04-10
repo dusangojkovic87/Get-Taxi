@@ -29,6 +29,10 @@ html,body{
   --dark-grey:#333333;
 }
 
+.activeLink{
+  color: var(--orange) !important;
+}
+
 .activeLoginLink{
   background-color:var(--orange) !important;
 }

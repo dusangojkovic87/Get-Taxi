@@ -1,5 +1,11 @@
-<app-taxi-order></app-taxi-order>
-<app-taxi-order></app-taxi-order>
-<app-taxi-order></app-taxi-order>
-<app-taxi-order></app-taxi-order>
+<div *ngIf="taxiOrders == null;else orders">
+     <h1 class="no__orders__heading">No orders</h1>
+</div>
+<ng-template #orders>
+  <div #orders *ngFor="let taxiOrder of taxiOrders | paginate: { itemsPerPage: 3, currentPage: p }">
+    <app-taxi-order [taxiOrder] ="taxiOrder"></app-taxi-order>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</ng-template>
+
 

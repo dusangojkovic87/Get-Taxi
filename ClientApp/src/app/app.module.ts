@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -78,6 +79,7 @@ import { TaxiordersEffects } from './effects/taxiorders.effects';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule,
     EffectsModule.forRoot([AuthEffects, BookingEffects, MessageEffects, TaxiordersEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],

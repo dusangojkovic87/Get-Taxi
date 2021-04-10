@@ -1,9 +1,7 @@
 <div class="taxi-order-container">
-  <p><span>Start Destination:</span>Mramorac</p>
-  <p><span>End Destination:</span>Palanka</p>
-  <p><span>Time and Date:</span>21/12/2020</p>
-  <p><span>Phone Number:</span>064213455</p>
-  <p><span>Number of passengers:</span>2</p>
-
-
+  <p><span>Start Destination:</span>{{taxiOrder?.startDestination}}</p>
+  <p><span>End Destination:</span>{{taxiOrder?.endDestination}}</p>
+  <p><span>Time and Date:</span>{{taxiOrder?.timeDate}}</p>
+  <p><span>Phone Number:</span>{{taxiOrder?.phoneNumber}}</p>
+  <p><span>Number of passengers:</span>{{taxiOrder?.passengersNumber}}</p>
 </div>
