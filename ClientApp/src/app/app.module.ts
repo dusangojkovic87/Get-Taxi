@@ -42,6 +42,9 @@ import { TaxiOrdersComponent } from './Pages/admin/taxi-orders/taxi-orders.compo
 import { AddBlogComponent } from './Pages/admin/add-blog/add-blog.component';
 import { TaxiOrderComponent } from './Pages/admin/taxi-orders/taxi-order/taxi-order.component';
 import { TaxiordersEffects } from './effects/taxiorders.effects';
+import { MessageListComponent } from './Pages/admin/message-list/message-list.component';
+import { MessageComponent } from './Pages/admin/message-list/message/message.component';
+import { MessageDetailsComponent } from './Pages/admin/message-list/message-details/message-details.component';
 
 
 
@@ -70,7 +73,10 @@ import { TaxiordersEffects } from './effects/taxiorders.effects';
     AdminComponent,
     TaxiOrdersComponent,
     AddBlogComponent,
-    TaxiOrderComponent
+    TaxiOrderComponent,
+    MessageListComponent,
+    MessageComponent,
+    MessageDetailsComponent
 
 
   ],

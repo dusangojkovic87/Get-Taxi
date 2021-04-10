@@ -8,12 +8,14 @@ export interface MessageState {
   message: Message | null;
   sendSuccess: boolean;
   errorMessage: string | null;
+  AllMessages:any;
 }
 
 export const initialState: MessageState = {
   message: null,
   sendSuccess: false,
   errorMessage: null,
+  AllMessages:null
 };
 
 export function messagereducer(
@@ -35,6 +37,20 @@ export function messagereducer(
         sendSuccess: false,
         errorMessage: 'sending failed!',
       };
+    }
+
+    case MessageActionTypes.GET_MESSAGES_SUCCESS:{
+      return {
+        ...state,
+        AllMessages:action.payload
+      }
+    }
+
+    case MessageActionTypes.GET_MESSAGES_FAIL:{
+      return {
+        ...state,
+       errorMessage:"failed to get messages"
+      }
     }
 
     case MessageActionTypes.DEFAULT_MESSAGE_STATE:{

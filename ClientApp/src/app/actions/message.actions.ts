@@ -6,6 +6,10 @@ export enum MessageActionTypes {
   SEND_SUCCESS = '[Message] SEND_SUCCESS',
   SEND_FAIL = '[Message] SEND_FAIL',
   DEFAULT_MESSAGE_STATE = '[Message] DEFAULT_MESSAGE_STATE',
+  GET_MESSAGES = '[Message] GET_MESSAGES',
+  GET_MESSAGES_SUCCESS = '[Message] GET_MESSAGES_SUCCESS',
+  GET_MESSAGES_FAIL = '[Message] GET_MESSAGE_FAIL'
+
 }
 
 export class SEND_MESSAGE implements Action {
@@ -23,6 +27,23 @@ export class SEND_FAIL implements Action {
   constructor(public payload: any) {}
 }
 
+export class GET_MESSAGES implements Action {
+  readonly type = MessageActionTypes.GET_MESSAGES;
+  constructor() {}
+}
+
+export class GET_MESSAGES_SUCCESS implements Action {
+  readonly type = MessageActionTypes.GET_MESSAGES_SUCCESS;
+  constructor(public payload:any) {}
+}
+
+export class GET_MESSAGES_FAIL implements Action {
+  readonly type = MessageActionTypes.GET_MESSAGES_FAIL;
+  constructor() {}
+}
+
+
+
 export class DEFAULT_MESSAGE_STATE implements Action {
   readonly type = MessageActionTypes.DEFAULT_MESSAGE_STATE;
 }
@@ -31,4 +52,7 @@ export type MessageActions =
   | SEND_MESSAGE
   | SEND_SUCCESS
   | SEND_FAIL
-  | DEFAULT_MESSAGE_STATE;
+  | DEFAULT_MESSAGE_STATE
+  | GET_MESSAGES
+  | GET_MESSAGES_SUCCESS
+  | GET_MESSAGES_FAIL;

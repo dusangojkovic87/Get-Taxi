@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using Get_Taxi.Entities;
 using Get_Taxi.Models;
@@ -34,6 +35,15 @@ namespace Get_Taxi.Controllers
                 
             }
             return BadRequest(ModelState);   
+        }
+
+        [HttpGet]
+        [Route("get-messages")]
+        public IActionResult getMessages(){
+
+        var messagesFromDb = _repository.Messages.GetMessages();
+        var messagesToReturn =  _mapper.Map<IEnumerable<MessageGetModel>>(messagesFromDb);
+        return Ok(messagesToReturn);
         }
 
     }

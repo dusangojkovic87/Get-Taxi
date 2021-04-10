@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './Pages/about/about.component';
 import { AddBlogComponent } from './Pages/admin/add-blog/add-blog.component';
 import { AdminComponent } from './Pages/admin/admin.component';
+import { MessageDetailsComponent } from './Pages/admin/message-list/message-details/message-details.component';
+import { MessageListComponent } from './Pages/admin/message-list/message-list.component';
 import { TaxiOrdersComponent } from './Pages/admin/taxi-orders/taxi-orders.component';
 import { BlogComponent } from './Pages/blog/blog.component';
 import { ContactComponent } from './Pages/contact/contact.component';
@@ -27,9 +29,10 @@ const routes: Routes = [
   ]},
   {path:"admin",component:AdminComponent,children:[
     {path:"taxi-orders",component:TaxiOrdersComponent},
-    {path:"add-blog",component:AddBlogComponent}
-
-  ]}
+    {path:"add-blog",component:AddBlogComponent},
+    {path:"messages",component:MessageListComponent},
+  ]},
+  {path:"messages/:id",component:MessageDetailsComponent}
 ];
 
 @NgModule({

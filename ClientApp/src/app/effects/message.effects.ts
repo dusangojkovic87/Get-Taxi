@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions,Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import {
+  GET_MESSAGES_FAIL,
+  GET_MESSAGES_SUCCESS,
   MessageActionTypes,
   SEND_FAIL,
   SEND_MESSAGE,
@@ -35,7 +37,29 @@ export class MessageEffects {
         ));
       })
      );
+
+     @Effect()
+     GetMessages:Observable<any> = this.actions$.pipe(
+       ofType(MessageActionTypes.GET_MESSAGES),
+       mergeMap(() =>{
+        return  this.messageServise.getMessages().pipe(
+          map((data) => {
+            return new GET_MESSAGES_SUCCESS(data);
+          }),
+          catchError((err) => {
+            console.log(err);
+            return of(new GET_MESSAGES_FAIL());
+          })
+        );
+
+      })
+    );
+
+
   }
+
+
+
 
 
 

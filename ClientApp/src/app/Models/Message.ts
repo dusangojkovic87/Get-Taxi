@@ -1,5 +1,6 @@
 export interface Message{
-  Name:string;
-  Email:string;
-  Question:string;
+  id:number;
+  name:string;
+  email:string;
+  question:string;
 }

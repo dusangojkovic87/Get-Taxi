@@ -15,6 +15,8 @@ namespace Get_Taxi.Helpers
             CreateMap<TaxiOrders,TaxiOrderAddModel>().ReverseMap();
             CreateMap<Messages,MessageAddModel>().ReverseMap();
             CreateMap<SubscribedUsers,SubsribeUserAddModel>().ReverseMap();
+            CreateMap<MessageGetModel,Messages>().ReverseMap();
+            
                                 
         }
         
