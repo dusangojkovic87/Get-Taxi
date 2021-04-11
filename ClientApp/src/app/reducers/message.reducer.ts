@@ -8,14 +8,16 @@ export interface MessageState {
   message: Message | null;
   sendSuccess: boolean;
   errorMessage: string | null;
-  AllMessages:any;
+  AllMessages: any;
+  MessageDetails: Message | null;
 }
 
 export const initialState: MessageState = {
   message: null,
   sendSuccess: false,
   errorMessage: null,
-  AllMessages:null
+  AllMessages: null,
+  MessageDetails: null,
 };
 
 export function messagereducer(
@@ -39,26 +41,35 @@ export function messagereducer(
       };
     }
 
-    case MessageActionTypes.GET_MESSAGES_SUCCESS:{
+    case MessageActionTypes.GET_MESSAGES_SUCCESS: {
       return {
         ...state,
-        AllMessages:action.payload
-      }
+        AllMessages: action.payload,
+      };
     }
 
-    case MessageActionTypes.GET_MESSAGES_FAIL:{
+    case MessageActionTypes.GET_MESSAGES_FAIL: {
       return {
         ...state,
-       errorMessage:"failed to get messages"
-      }
+        errorMessage: 'failed to get messages',
+      };
     }
 
-    case MessageActionTypes.DEFAULT_MESSAGE_STATE:{
-      return{
+    case MessageActionTypes.GET_MESSAGE_DETAILS: {
+      return {
         ...state,
-        sendSuccess:false,
-        errorMessage:null
-      }
+        MessageDetails: state?.AllMessages?.filter(
+          (item: Message) => item.id === action.payload
+        ),
+      };
+    }
+
+    case MessageActionTypes.DEFAULT_MESSAGE_STATE: {
+      return {
+        ...state,
+        sendSuccess: false,
+        errorMessage: null,
+      };
     }
     default:
       return state;

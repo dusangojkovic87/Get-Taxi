@@ -1,1 +1,14 @@
-<p>message-details works!</p>
+<div class="message-header">
+     <button (click) ="backToMessages()">back</button>
+</div>
+<div class="message-container">
+  <div *ngFor="let msg of message">
+    <div class="email-wrraper">
+      <p><span>Name:</span>{{ msg?.name }}</p>
+      <p><span>Name:</span>{{ msg?.email }}</p>
+    </div>
+    <div class="question-wrraper">
+      <p>{{ msg?.question }}</p>
+    </div>
+  </div>
+</div>

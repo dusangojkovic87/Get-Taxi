@@ -17,8 +17,7 @@ namespace Get_Taxi.Entities
         public string BlogText { get; set; }
         [Required]
         public DateTime CratedAt { get; set; }
-        public int BlogCategoryId { get; set; }
         public string BlogImage { get; set; }
-        public BlogCategory BlogCategory { get; set; }
+        
     }
 }

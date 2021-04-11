@@ -1,4 +1,29 @@
 <div class="blog-container">
-
-
+  <form [formGroup]="blogForm" (ngSubmit) = "addBlogPost()">
+    <p
+      class="error__message"
+      *ngIf="
+        (blogForm.get('blogName').touched &&
+          blogForm.get('blogName').hasError('required')) ||
+        (blogForm.get('blogText').touched &&
+          blogForm.get('blogText').hasError('required'))
+      "
+    >
+      *fields cannot be empty!
+    </p>
+    <input
+      type="text"
+      placeholder="blog name"
+      formControlName="blogName"
+      required
+    />
+    <textarea
+      placeholder="blog text"
+      formControlName="blogText"
+      required
+    ></textarea>
+    <label for="blogImage">Image:</label>
+    <input type="file" name="blogImage" />
+    <button type="submit">add blog</button>
+  </form>
 </div>

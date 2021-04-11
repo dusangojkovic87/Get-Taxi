@@ -1,12 +1,11 @@
-using Get_Taxi.Entities;
 
+using Get_Taxi.Entities;
 
 namespace Get_Taxi.Services.ServiceInterfaces
 {
-    public interface IBlogRepository
+    public interface IBlogRepository:IRepository<Blog>
     {
-        void addBlogCategory(BlogCategory model);
         void addBlog(Blog model);
-        
+      
     }
 }

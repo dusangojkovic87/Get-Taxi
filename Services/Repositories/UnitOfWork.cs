@@ -14,6 +14,9 @@ namespace Get_Taxi.Services.Repositories
             Messages = new MessageRepository(_context);
             SubsribeEmail = new SubscribeRepository(_context);
             TaxiOrders = new TaxiOrdersRepository(_context);
+            BlogPost = new BlogRepository(_context);
+            
+         
 
         }
 
@@ -23,6 +26,8 @@ namespace Get_Taxi.Services.Repositories
         public IMessageRepository Messages { get; set; }
         public ISubscribeRepository SubsribeEmail { get; set; }
         public ITaxiOrders TaxiOrders {get;set;}
+        public IBlogRepository BlogPost { get; set; }
+      
 
         public void Dispose()
         {

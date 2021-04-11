@@ -8,7 +8,8 @@ export enum MessageActionTypes {
   DEFAULT_MESSAGE_STATE = '[Message] DEFAULT_MESSAGE_STATE',
   GET_MESSAGES = '[Message] GET_MESSAGES',
   GET_MESSAGES_SUCCESS = '[Message] GET_MESSAGES_SUCCESS',
-  GET_MESSAGES_FAIL = '[Message] GET_MESSAGE_FAIL'
+  GET_MESSAGES_FAIL = '[Message] GET_MESSAGE_FAIL',
+  GET_MESSAGE_DETAILS = '[mESSAGE] GET_MESSAGE_DETAILS'
 
 }
 
@@ -42,7 +43,10 @@ export class GET_MESSAGES_FAIL implements Action {
   constructor() {}
 }
 
-
+export class GET_MESSAGES_DETAILS implements Action {
+  readonly type = MessageActionTypes.GET_MESSAGE_DETAILS;
+  constructor(public payload:number) {}
+}
 
 export class DEFAULT_MESSAGE_STATE implements Action {
   readonly type = MessageActionTypes.DEFAULT_MESSAGE_STATE;
@@ -55,4 +59,5 @@ export type MessageActions =
   | DEFAULT_MESSAGE_STATE
   | GET_MESSAGES
   | GET_MESSAGES_SUCCESS
-  | GET_MESSAGES_FAIL;
+  | GET_MESSAGES_FAIL
+  | GET_MESSAGES_DETAILS;

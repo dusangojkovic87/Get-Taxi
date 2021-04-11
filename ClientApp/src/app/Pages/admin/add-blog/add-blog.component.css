@@ -1,0 +1,59 @@
+.blog-container{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+form{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  top: 3rem;
+
+}
+
+input{
+  width: 14rem;
+  height: 2rem;
+  margin: 1rem;
+}
+
+textarea{
+  position: relative;
+  width:80%;
+  height:20rem;
+  margin-top: 1rem;
+}
+
+::placeholder{
+  font-family: "Oswald";
+  font-size: 1rem;
+  padding-left: 1rem;
+
+}
+
+label{
+  font-family: "Oswald";
+  font-size: 1rem;
+}
+
+button{
+  width: 7rem;
+  height: 2rem;
+  background-color: var(--orange);
+  color: white;
+  font-family: "Oswald";
+  font-size: 1rem;
+}
+
+.error__message{
+  position: absolute;
+  font-family: "Oswald";
+  font-size: 1rem;
+  color: red;
+  top:-3rem;
+
+}

@@ -10,6 +10,7 @@ namespace Get_Taxi.Services.ServiceInterfaces
         IMessageRepository Messages {get;set;}
         ISubscribeRepository SubsribeEmail {get;set;}
         ITaxiOrders TaxiOrders {get;set;}
+        IBlogRepository BlogPost {get;set;}
         int Save();
     }
 }
