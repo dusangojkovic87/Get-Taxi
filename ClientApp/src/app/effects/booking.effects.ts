@@ -24,11 +24,10 @@ export class BookingEffects {
     switchMap((payload) => {
       return this.bookingServise.bookTaxi(payload).pipe(
         map((success) => {
-          console.log(success);
           return new BOOKED_SUCCESS(success);
         }),
         catchError((err) => {
-          console.log(err);
+
           return of(new BOOKING_FAIL({ error: err }));
         })
       );

@@ -1,5 +1,6 @@
 <div class="blog-container">
-  <form [formGroup]="blogForm" (ngSubmit) = "addBlogPost()">
+  <p *ngIf="blogAdded" class="blog__added">Blog added!</p>
+  <form [formGroup]="blogForm" (ngSubmit) = "addBlogPost()" enctype="multipart/form-data">
     <p
       class="error__message"
       *ngIf="
@@ -23,7 +24,7 @@
       required
     ></textarea>
     <label for="blogImage">Image:</label>
-    <input type="file" name="blogImage" />
+    <input type="file" (change) = "onFileChange($event)"/>
     <button type="submit">add blog</button>
   </form>
 </div>

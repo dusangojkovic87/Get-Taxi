@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace Get_Taxi.Models
 {
@@ -7,7 +8,7 @@ namespace Get_Taxi.Models
         public string BlogName { get; set; }
         [Required]
         public string BlogText { get; set; }
-        public string BlogImage { get; set; }
+        public IFormFile BlogImage { get; set; }
         
     }
 }

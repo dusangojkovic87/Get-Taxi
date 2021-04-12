@@ -45,6 +45,7 @@ import { TaxiordersEffects } from './effects/taxiorders.effects';
 import { MessageListComponent } from './Pages/admin/message-list/message-list.component';
 import { MessageComponent } from './Pages/admin/message-list/message/message.component';
 import { MessageDetailsComponent } from './Pages/admin/message-list/message-details/message-details.component';
+import { BlogEffects } from './effects/blog.effects';
 
 
 
@@ -89,7 +90,7 @@ import { MessageDetailsComponent } from './Pages/admin/message-list/message-deta
     EffectsModule.forRoot([AuthEffects, BookingEffects, MessageEffects, TaxiordersEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forFeature([SubscribeEffects])
+    EffectsModule.forFeature([SubscribeEffects, BlogEffects])
   ],
   providers: [AuthService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

@@ -57,3 +57,11 @@ button{
   top:-3rem;
 
 }
+
+.blog__added{
+  position: absolute;
+  color: green;
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Oswald";
+}
