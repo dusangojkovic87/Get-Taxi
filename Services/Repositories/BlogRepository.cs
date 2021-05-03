@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Get_Taxi.Entities;
 using Get_Taxi.Models;
 using Get_Taxi.Services.ServiceInterfaces;
@@ -16,6 +18,10 @@ namespace Get_Taxi.Services.Repositories
         {
             _context.Blog.Add(model);
 
+        }
+
+        public IEnumerable<Blog> getBlogs(){
+         return  _context.Blog.ToList();
         }
     }
 }

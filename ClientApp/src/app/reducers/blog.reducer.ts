@@ -1,3 +1,4 @@
+import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a } from '@angular/platform-browser-dynamic';
 import { Action } from '@ngrx/store';
 import { BlogActions, BlogActionTypes } from '../actions/blog.actions';
 
@@ -42,6 +43,22 @@ export function blogreducer(state = initialState, action: BlogActions): blogStat
         ...state,
         blogAdded:true,
         error:false
+      }
+    }
+
+    case BlogActionTypes.LOAD_BLOGS_SUCCESS:{
+      return {
+        ...state,
+        blogs:action.payload,
+        error:false
+
+      }
+    }
+
+    case BlogActionTypes.LOAD_BLOGS_FAIL:{
+      return{
+        ...state,
+        error:true
       }
     }
 

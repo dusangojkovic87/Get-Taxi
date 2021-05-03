@@ -1,10 +1,11 @@
 using AutoMapper;
-using Get_Taxi.Entities;
 using Get_Taxi.Helpers;
 using Get_Taxi.Models;
 using Get_Taxi.Services.ServiceInterfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Get_Taxi.Entities;
+
 
 namespace Get_Taxi.Controllers
 {
@@ -43,12 +44,15 @@ namespace Get_Taxi.Controllers
                 var pathToSave ="/wwwroot/blog/images/";
                 var imageName = uploader.UploadImage(model.BlogImage,_env.ContentRootPath,pathToSave);
                 var blog = new Blog{
-                    BlogName = model.BlogName,
-                    BlogText = model.BlogText,
-                    BlogImage = imageName
+                  BlogName = model.BlogName,
+                  BlogText = model.BlogText,
+                  BlogImage = imageName
                 };
+
                 _repository.BlogPost.addBlog(blog);
+                _repository.Save();
                 return Ok();
+                
             }
 
             return BadRequest();

@@ -9,7 +9,10 @@
   <h4>Latest News</h4>
 </div>
 <div class="blog-container">
-   <app-blog-post></app-blog-post>
-   <app-blog-post></app-blog-post>
+  <ng-container *ngFor="let blog of blogs | paginate: { itemsPerPage: 2, currentPage: p }">
+     <app-blog-post [blog] = "blog"></app-blog-post>
+  </ng-container>
+
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 <app-footer></app-footer>

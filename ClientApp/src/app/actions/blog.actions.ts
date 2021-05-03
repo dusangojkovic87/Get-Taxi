@@ -2,6 +2,8 @@ import { Action } from '@ngrx/store';
 
 export enum BlogActionTypes {
   LOAD_BLOGS = '[Blog] LOAD BLOGS',
+  LOAD_BLOGS_SUCCESS = '[Blog] LOAD BLOGS SUCCESS',
+  LOAD_BLOGS_FAIL = '[Blog] LOAD BLOGS FAIL',
   ADD_BLOG = '[Blog] ADD_BLOG',
   ADD_BLOG_SUCCESS = '[Blog] ADD_BLOG_SUCCESS',
   ADD_BLOG_FAIL = '[Blog] ADD_BLOG_FAIL',
@@ -10,6 +12,16 @@ export enum BlogActionTypes {
 
 export class LOAD_BLOGS implements Action {
   readonly type = BlogActionTypes.LOAD_BLOGS;
+}
+
+export class LOAD_BLOGS_SUCCESS implements Action {
+  readonly type = BlogActionTypes.LOAD_BLOGS_SUCCESS;
+  constructor(public payload: any) {}
+}
+
+export class LOAD_BLOGS_FAIL implements Action {
+  readonly type = BlogActionTypes.LOAD_BLOGS_FAIL;
+  constructor(public payload: any) {}
 }
 
 export class ADD_BLOG implements Action {
@@ -35,4 +47,7 @@ export type BlogActions =
   | ADD_BLOG
   | ADD_BLOG_SUCCESS
   | ADD_BLOG_FAIL
-  | ADD_BLOG_DEFAULT;
+  | ADD_BLOG_DEFAULT
+  | LOAD_BLOGS_SUCCESS
+  | LOAD_BLOGS_FAIL
+  ;

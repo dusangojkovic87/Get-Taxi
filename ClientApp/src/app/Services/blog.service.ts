@@ -21,4 +21,10 @@ export class BlogService {
     return this.http.post(`${BASE_URL}/admin/add-blog`,blog,this.options);
   }
 
+  getBlogs(){
+    const BASE_URL="http://localhost:5000";
+    return this.http.get(`${BASE_URL}/blogs/get-blogs`);
+
+  }
+
 }
