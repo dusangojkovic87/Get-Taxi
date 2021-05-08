@@ -27,4 +27,11 @@ export class BlogService {
 
   }
 
+  getBlogById(id:number){
+    const BASE_URL="http://localhost:5000";
+    return this.http.get(`${BASE_URL}/blogs/get-blog/${id}`);
+  }
+
+
+
 }

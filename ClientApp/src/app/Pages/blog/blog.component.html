@@ -9,7 +9,7 @@
   <h4>Latest News</h4>
 </div>
 <div class="blog-container">
-  <ng-container *ngFor="let blog of blogs | paginate: { itemsPerPage: 2, currentPage: p }">
+  <ng-container *ngFor="let blog of blogs | paginate: { itemsPerPage: 1, currentPage: p }">
      <app-blog-post [blog] = "blog"></app-blog-post>
   </ng-container>
 

@@ -29,5 +29,23 @@ namespace Get_Taxi.Controllers
 
         }
 
+
+        [HttpGet]
+        [Route("get-blog/{id:int}")]
+        public IActionResult GetBlog(int id){
+            if(ModelState.IsValid){
+                var blog = _repository.BlogPost.getBlog(id);
+                if(blog == null){
+                    return NotFound();
+                }else{
+                   return Ok(blog);
+                }
+               
+            }
+
+            return BadRequest();
+            
+        }
+
     }
 }

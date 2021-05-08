@@ -8,6 +8,9 @@ export enum BlogActionTypes {
   ADD_BLOG_SUCCESS = '[Blog] ADD_BLOG_SUCCESS',
   ADD_BLOG_FAIL = '[Blog] ADD_BLOG_FAIL',
   ADD_BLOG_DEFAULT = '[Blog] ADD_BLOG_DEFAULT',
+  GET_BLOG_DETAILS = '[Blog] GET_BLOG_DETAILS',
+  GET_BLOG_DETAILS_SUCCESS = '[Blog] GET_BLOG_DETAILS_SUCCESS',
+  GET_BLOG_DETAILS_FAIL = '[Blog] GET_BLOG_DETAILS_FAIL'
 }
 
 export class LOAD_BLOGS implements Action {
@@ -42,6 +45,21 @@ export class ADD_BLOG_DEFAULT implements Action {
   constructor() {}
 }
 
+export class GET_BLOG_DETAILS implements Action {
+  readonly type = BlogActionTypes.GET_BLOG_DETAILS;
+  constructor(public payload: number) {}
+}
+
+export class GET_BLOG_DETAILS_SUCCESS implements Action {
+  readonly type = BlogActionTypes.GET_BLOG_DETAILS_SUCCESS;
+  constructor(public payload: any) {}
+}
+
+export class GET_BLOG_DETAILS_FAIL implements Action {
+  readonly type = BlogActionTypes.GET_BLOG_DETAILS_FAIL;
+  constructor(public payload: any) {}
+}
+
 export type BlogActions =
   | LOAD_BLOGS
   | ADD_BLOG
@@ -50,4 +68,6 @@ export type BlogActions =
   | ADD_BLOG_DEFAULT
   | LOAD_BLOGS_SUCCESS
   | LOAD_BLOGS_FAIL
-  ;
+  | GET_BLOG_DETAILS
+  | GET_BLOG_DETAILS_SUCCESS
+  | GET_BLOG_DETAILS_FAIL;

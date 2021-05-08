@@ -6,6 +6,7 @@ import { AdminComponent } from './Pages/admin/admin.component';
 import { MessageDetailsComponent } from './Pages/admin/message-list/message-details/message-details.component';
 import { MessageListComponent } from './Pages/admin/message-list/message-list.component';
 import { TaxiOrdersComponent } from './Pages/admin/taxi-orders/taxi-orders.component';
+import { BlogDetailsComponent } from './Pages/blog/blog-details/blog-details.component';
 import { BlogComponent } from './Pages/blog/blog.component';
 import { ContactComponent } from './Pages/contact/contact.component';
 import { GetCabComponent } from './Pages/get-cab/get-cab.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:"about",component:AboutComponent},
   {path:"get-cab",component:GetCabComponent},
   {path:"contact",component:ContactComponent},
-  {path:"blog",component:BlogComponent},
+  {path:"blog",component:BlogComponent,},
+  {path:"blog-details/:id",component:BlogDetailsComponent},
   {path:"logout",component:LogoutComponent},
   {path:"login",component:LoginComponent,children:[
     {path:"",redirectTo:"sign-in",pathMatch:"full"},

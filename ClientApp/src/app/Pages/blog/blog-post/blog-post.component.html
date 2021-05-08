@@ -13,5 +13,5 @@
 
     <p class="blog__text">{{ blog?.blogText | slice: 0:200 }}</p>
   </div>
-  <button class="read__more__btn">read more</button>
+  <button class="read__more__btn" (click) = "readMore(blog?.id)">read more</button>
 </div>

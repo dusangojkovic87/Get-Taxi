@@ -8,6 +8,7 @@ namespace Get_Taxi.Services.ServiceInterfaces
     {
         void addBlog(Blog model);
         IEnumerable<Blog> getBlogs();
+        Blog getBlog(int id);
       
     }
 }

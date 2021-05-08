@@ -1,6 +1,7 @@
 import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a } from '@angular/platform-browser-dynamic';
 import { Action } from '@ngrx/store';
 import { BlogActions, BlogActionTypes } from '../actions/blog.actions';
+import { Blog } from '../Models/Blog';
 
 
 export const blogFeatureKey = 'blog';
@@ -8,14 +9,16 @@ export const blogFeatureKey = 'blog';
 export interface blogState {
   blogs:any;
   error:boolean;
-  blogAdded:boolean
+  blogAdded:boolean,
+  blogDetails?:Blog
 
 }
 
 export const initialState: blogState = {
   blogs:null,
   error:false,
-  blogAdded:false
+  blogAdded:false,
+  blogDetails:undefined
 
 };
 
@@ -56,6 +59,20 @@ export function blogreducer(state = initialState, action: BlogActions): blogStat
     }
 
     case BlogActionTypes.LOAD_BLOGS_FAIL:{
+      return{
+        ...state,
+        error:true
+      }
+    }
+
+    case BlogActionTypes.GET_BLOG_DETAILS_SUCCESS:{
+      return{
+        ...state,
+        blogDetails:action.payload
+      }
+    }
+
+    case BlogActionTypes.GET_BLOG_DETAILS_FAIL:{
       return{
         ...state,
         error:true

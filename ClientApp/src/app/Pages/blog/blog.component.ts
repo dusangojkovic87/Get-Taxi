@@ -19,7 +19,6 @@ export class BlogComponent implements OnInit {
     this.store.dispatch(new LOAD_BLOGS());
     this.store.select(state => state.blogState).subscribe(data =>{
       this.blogs = data.blogs;
-      console.log("blogs",this.blogs);
 
     })
 

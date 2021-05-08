@@ -23,5 +23,10 @@ namespace Get_Taxi.Services.Repositories
         public IEnumerable<Blog> getBlogs(){
          return  _context.Blog.ToList();
         }
+
+        public Blog getBlog(int id)
+        {
+           return _context.Blog.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

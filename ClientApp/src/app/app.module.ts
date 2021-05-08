@@ -46,6 +46,7 @@ import { MessageListComponent } from './Pages/admin/message-list/message-list.co
 import { MessageComponent } from './Pages/admin/message-list/message/message.component';
 import { MessageDetailsComponent } from './Pages/admin/message-list/message-details/message-details.component';
 import { BlogEffects } from './effects/blog.effects';
+import { BlogDetailsComponent } from './Pages/blog/blog-details/blog-details.component';
 
 
 
@@ -77,7 +78,8 @@ import { BlogEffects } from './effects/blog.effects';
     TaxiOrderComponent,
     MessageListComponent,
     MessageComponent,
-    MessageDetailsComponent
+    MessageDetailsComponent,
+    BlogDetailsComponent
 
 
   ],
