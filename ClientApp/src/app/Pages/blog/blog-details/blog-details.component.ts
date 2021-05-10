@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { filter, map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { GET_BLOG_DETAILS } from 'src/app/actions/blog.actions';
 import { Blog } from 'src/app/Models/Blog';
 import { State } from 'src/app/reducers';
@@ -11,28 +11,29 @@ import { State } from 'src/app/reducers';
   templateUrl: './blog-details.component.html',
   styleUrls: ['./blog-details.component.css'],
 })
-export class BlogDetailsComponent implements OnInit {
+export class BlogDetailsComponent implements OnInit,OnDestroy {
   id?: number;
-  blogDetails: any;
+  blogDetails?:Blog;
+  Sub?:Subscription;
 
   constructor(private store: Store<State>, private route: ActivatedRoute) {}
 
-   ngOnInit(): void {
-     this.route.params.subscribe((params:Params) =>{
-       this.id = +params.id;
-       this.store.dispatch(new GET_BLOG_DETAILS(this.id));
-       this.store.select(state => state.blogState.blogDetails).subscribe(data =>{
-         console.log("details",data);
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params.id;
+      this.store.dispatch(new GET_BLOG_DETAILS(this.id));
+      this.Sub = this.store
+        .select((state) => state.blogState.blogDetails)
+        .subscribe((data) => {
+          this.blogDetails = data;
+        });
+    });
+  }
 
-       })
-     })
-
-
+  ngOnDestroy(){
+    this.Sub?.unsubscribe();
   }
 
 
-  }
 
-
-
-
+}

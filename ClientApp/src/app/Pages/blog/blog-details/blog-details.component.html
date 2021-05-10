@@ -1,1 +1,17 @@
-<p>blog-details works!</p>
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="blog-details-container">
+  <div class="blog-img-wrraper">
+    <img
+      src="blog/images/{{ blogDetails?.blogImage }}"
+      alt="{{ blogDetails?.blogImage }}"
+    />
+    <h1 class="blog__name">{{ blogDetails?.blogName | slice:0:200}}</h1>
+  </div>
+  <div class="blog-date-container">
+    <p class="blog__date">{{ blogDetails?.cratedAt | date }}</p>
+  </div>
+  <div class="blog-text-container">
+    <p class="blog__text">{{ blogDetails?.blogText }}</p>
+  </div>
+</div>

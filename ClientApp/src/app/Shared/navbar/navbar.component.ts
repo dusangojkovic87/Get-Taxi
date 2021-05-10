@@ -1,8 +1,6 @@
-import { localizedString } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { LOGOUT } from 'src/app/actions/auth.actions';
 import { State } from 'src/app/reducers';
 
 @Component({
@@ -20,7 +18,6 @@ export class NavbarComponent implements OnInit {
     this.store
       .select((state) => state.authState.isAuthenticated)
       .subscribe((isAuth) => {
-        console.log(isAuth);
         this.isLogged = isAuth;
       });
   }

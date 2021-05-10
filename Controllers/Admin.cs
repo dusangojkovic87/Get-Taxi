@@ -5,12 +5,17 @@ using Get_Taxi.Services.ServiceInterfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Get_Taxi.Entities;
+using Microsoft.AspNetCore.Authorization;
+
+
 
 
 namespace Get_Taxi.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("[controller]")]
+    
     public class Admin : Controller
     {
         private IUnitOfWork _repository;

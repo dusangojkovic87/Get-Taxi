@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminGuard } from './Guards/admin.guard';
 import { AboutComponent } from './Pages/about/about.component';
 import { AddBlogComponent } from './Pages/admin/add-blog/add-blog.component';
 import { AdminComponent } from './Pages/admin/admin.component';
@@ -29,7 +30,7 @@ const routes: Routes = [
     {path:"sign-in",component:LoginFormComponent},
     {path:"register",component:RegisterFormComponent},
   ]},
-  {path:"admin",component:AdminComponent,children:[
+  {path:"admin",component:AdminComponent,canActivate:[AdminGuard],children:[
     {path:"taxi-orders",component:TaxiOrdersComponent},
     {path:"add-blog",component:AddBlogComponent},
     {path:"messages",component:MessageListComponent},

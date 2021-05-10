@@ -3,8 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Get_Taxi.Entities
 {
+    
     public class User
     {
+        public User()
+        {
+            UserRole = "Customer";
+            
+        }
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }

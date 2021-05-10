@@ -2,7 +2,6 @@ using System;
 using System.Text;
 using AutoMapper;
 using Get_Taxi.Models;
-using Get_Taxi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,6 +15,7 @@ using Get_Taxi.Extensions;
 using Microsoft.Extensions.Logging;
 using Get_Taxi.Services.ServiceInterfaces;
 using Get_Taxi.Services.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Get_Taxi
 {
@@ -47,6 +47,7 @@ namespace Get_Taxi
 
             //register services
             services.AddScoped<IUnitOfWork,UnitOfWork>();
+          
 
 
             //cors
@@ -77,17 +78,26 @@ namespace Get_Taxi
                   };
               });
 
-            //authorization
-            services.AddAuthorization(config =>
-               {
-                   config.AddPolicy(Policies.Policies.Admin, Policies.Policies.AdminPolicy());
-                   config.AddPolicy(Policies.Policies.User, Policies.Policies.UserPolicy());
-               });
-
+         //authorization
+         /* services.AddAuthorization(config =>
+           {
+               config.AddPolicy(Policies.Policies.Admin, Policies.Policies.AdminPolicy());
+               config.AddPolicy(Policies.Policies.User, Policies.Policies.UserPolicy());
+           });
+ */
+       
 
         }
-       
-        private ILogger<Startup> _logger;
+
+           
+         
+         
+ 
+    
+ 
+  
+        
+      private ILogger<Startup> _logger;
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)

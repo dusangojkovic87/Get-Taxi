@@ -45,15 +45,13 @@ export class BlogEffects {
     })
   )
 
-  @Effect({dispatch:false})
+  @Effect()
   GetBlogDetails:Observable<any> = this.actions$.pipe(
     ofType(BlogActionTypes.GET_BLOG_DETAILS),
      map((data:GET_BLOG_DETAILS) =>data.payload),
-     mergeMap((data) =>{
+     switchMap((data) =>{
         return this.http.getBlogById(data).pipe(
           map((data) => {
-            console.log(data);
-
             return new GET_BLOG_DETAILS_SUCCESS(data);
           }),
           catchError(err =>{

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../Models/User';
+import jwt_decode from "jwt-decode";
 
 
 @Injectable({
@@ -30,6 +31,11 @@ export class AuthService {
   register(userData:User){
     const url = `${this.BASE_URL}/authentication/register`;
     return this.http.post<User>(url,userData);
+  }
+
+  decodeToken(token:any){
+   let decodedToken = jwt_decode(token);
+   return decodedToken;
   }
 
 }
