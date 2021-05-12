@@ -1,0 +1,77 @@
+.register-form-container{
+  position: relative;
+  width:400px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: var(--brown);
+  height: 300px;
+  top: -16rem;
+  align-items: center;
+  border: 3px solid var(--orange);
+}
+
+.message-form-container{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top:11rem;
+}
+
+.error__msg{
+  color: red;
+  font-family: "Oswald";
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+form{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input{
+  width: 17rem;
+  height: 2rem;
+  margin: 0.4rem;
+}
+
+.register__btn{
+  position: relative;
+  width: 12rem;
+  height: 2rem;
+  background-color: var(--orange);
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+::placeholder{
+  font-family: "Oswald";
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+
+@media only screen and (max-width:427px){
+  .register-form-container{
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width:380px){
+  .register-form-container{
+    width: 330px;
+  }
+}
+
+@media only screen and (max-width:350px){
+  .register-form-container{
+    width: 300px;
+  }
+}
+
+

@@ -1,0 +1,112 @@
+.home-img-wrraper{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
+}
+
+.home-img-wrraper img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-img-wrraper::after{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  content: "";
+  top: 0;
+  left: 0;
+}
+
+h6{
+  position: absolute;
+  text-align: center;
+  top:5rem;
+  font-size: 2rem;
+  color: var(--orange);
+  z-index: 2;
+  font-weight: bold;
+  mix-blend-mode:exclusion;
+  width: 100%;
+}
+
+h1{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top:9rem;
+  font-size:4rem;
+  color: white;
+  z-index: 2;
+
+}
+
+.footer-container{
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+@media only screen and (max-width:1224px){
+  .footer-container{
+    top:12rem;
+  }
+
+
+}
+
+@media only screen and (max-width:1007px){
+  .home-img-wrraper{
+    height:800px;
+  }
+
+}
+
+@media only screen and (max-width:1224px){
+  app-choose-car-class-card{
+    position: relative;
+    top:12rem;
+  }
+
+}
+
+@media only screen and (max-width:555px){
+  app-choose-car-class-card{
+    position: relative;
+    top:42rem;
+  }
+
+  .footer-container{
+    top:42rem;
+  }
+
+}
+
+@media only screen and (max-width:381px){
+  h1{
+    font-size:3.6rem;
+  }
+
+}
+
+@media only screen and (max-width:360px){
+  h1{
+    font-size:3.6rem;
+  }
+
+}
+
+@media only screen and (max-width:320px){
+  h1{
+    font-size:3.4rem;
+  }
+
+}
+
+
+

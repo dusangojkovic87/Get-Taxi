@@ -1,8 +1,0 @@
-<div class="login-form-container">
-  <form [formGroup] = "loginForm" (ngSubmit) = "login()">
-    <p *ngIf="errorMessage">LOGIN FAILED!</p>
-    <input formControlName = "Email" type="text" placeholder="Email" />
-    <input formControlName = "Password" type="password" placeholder="Password" autocomplete="on" />
-    <button class="login__btn font--Oswald" type="submit">Submit</button>
-  </form>
-</div>

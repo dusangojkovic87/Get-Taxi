@@ -1,0 +1,17 @@
+<div class="blog-post-container">
+  <div class="blog-post-img-wrraper">
+    <img src="/blog/images/{{ blog?.blogImage }}" alt="{{ blog?.blogImage }}" />
+  </div>
+  <div class="blog-post-details-wrraper">
+    <p class="blog__date">{{ blog?.cratedAt | date }}</p>
+    <div class="blog-name-wrraper">
+      <p class="blog__name">
+        {{ blog?.blogName | slice: 0:40 }}
+      </p>
+    </div>
+    <p class="blog__text">{{ blog?.blogText | slice: 0:200 }}</p>
+  </div>
+  <button class="read__more__btn" (click)="readMore(blog?.id)">
+    read more
+  </button>
+</div>

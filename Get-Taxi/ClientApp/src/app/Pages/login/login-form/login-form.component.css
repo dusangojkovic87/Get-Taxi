@@ -1,0 +1,81 @@
+
+.login-form-container{
+  position: relative;
+  background-color:var(--brown);
+  width:400px;
+  height:250px;
+  margin: 0 auto;
+  top: -15rem;
+  border: 3px solid var(--orange);
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+
+}
+
+form{
+  position: relative;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+input{
+  height: 2rem;
+  width: 17rem;
+  margin: 0.3rem;
+}
+
+.login__btn{
+  position: relative;
+  background-color: var(--orange);
+  height: 2rem;
+  width:9rem;
+  cursor: pointer;
+  top: 2rem;
+  font-size: 1rem;
+  color: white;
+
+}
+
+::placeholder{
+  font-family: "Oswald";
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+
+@media only screen and (max-width:429px){
+  .login-form-container{
+    width: 350px;
+  }
+
+  form{
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width:364px){
+  .login-form-container{
+    width: 320px;
+  }
+
+  form{
+    width: 320px;
+  }
+}
+
+@media only screen and (max-width:344px){
+  .login-form-container{
+    width: 300px;
+  }
+
+  form{
+    width: 300px;
+  }
+}
+
+
